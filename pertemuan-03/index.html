@@ -13,6 +13,14 @@
             margin: 20px auto;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
         }
+        #contact {
+          background-color: #ffffff;
+          border-radius: 10px;
+          padding: 20px;
+          max-width: 700px;
+          margin: 20px auto;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+        }
         #about h2 {
             color: #003366;
             border-bottom: 2px solid #003366;
@@ -37,26 +45,26 @@
             flex-shrink: 0;
         }
         @media (max-width:600px) {
-            #about p {
+            #about p,
+            #contact label {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            #about strong {
+            #about strong,
+            #contact label>span {
                 text-align: left;
                 padding-right: 0;
                 margin-bottom: 2px;
             }
+            #contact input,
+            #contact textarea,
+            #contact button {
+              width: 100%;
+            }
         }
     </style>
     <style>
-#contact {
-  background-color: white; 
-  border-radius: 10px;
-  padding: 20px;
-  max-width: 700px;
-  margin: 20px auto;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+
 #contact h2 {
   font-size: 24px;
   color: #003366;
@@ -123,12 +131,6 @@
 #contact button[type="reset"]:hover {
   background-color: #cccccc;
   transform: translateY(-1px);
-}
-#footer p {
-  color: #374151;
-  font-family: "Segoe UI", sans-serif;
-  font-size: 15px;
-  margin: 0;
 }
     </style>
     <style>
