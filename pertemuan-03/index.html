@@ -118,42 +118,60 @@
             padding: 25 px 20px;
           }
         }
-    </style>
-    <style>
-#home {
-  background: linear-gradient(135deg, #e6f0ff, #ffffff);
-  padding: 60px 40px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
-  margin-top: 20px;
-  transition: transform 0.3s ease;
-}
-#home:hover {
-  transform: scale(1.02);
-}
-#home h2 {
-  font-size: 30px;
-  color: #002855;
-  margin-bottom: 15px;
-  position: relative;
-}
-#home h2::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 3px;
-  background-color: #002855;
-  margin: 8px auto 0 auto;
-  border-radius: 3px;
-}
-#home p {
-  color: #333;
-  font-size: 16px;
-  line-height: 1.6;
-  max-width: 600px;
-  margin: 0 auto;
-}
+        #home {
+          background: linear-gradient(to right, #003366,#0379ee);
+          text-align: center;
+          padding: 60px 20px 40px;
+          border-bottom: 2px solid #d6e4ff;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+          margin-bottom: 0;
+          color: #0d3b66;
+        }
+        #home h2 {
+          font-size: 2em;
+          color: #002b5b;
+          margin-bottom: 10px;
+        }
+        #home p {
+          color: #243b55;
+          font-size: 1.1em;
+          margin-top: 0;
+        }
+        body{
+          display: flex;
+
+          flex-direction: column-reverse;
+        }
+        header {
+          background-color: #002b5b;
+          color: #ffffff;
+          text-align: center;
+          padding: 15px;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 15);
+        }
+        header h1 {
+          margin: 0;
+          font-size: 1.8em;
+        }
+        nav ul {
+          list-style: none;
+          padding: 0;
+          margin: 10px 0 0;
+          display: flex;
+          justify-content: center;
+          gap: 30px;
+        }
+        nav a {
+          text-decoration: none;
+          color: #e0e8ff;
+          font-weight: 600;
+          transition: color o.3s, border-bottom 0.3s;
+        }
+        nav a:hover {
+          color: #a3c4f3;
+          border-bottom: 2px solid #a3c4f3;
+        }
     </style>
 </head>
 <body>
