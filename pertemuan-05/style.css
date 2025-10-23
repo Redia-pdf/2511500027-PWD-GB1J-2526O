@@ -143,6 +143,9 @@
             width: 100%;
             padding: 5px 0;
            }
+           nav.active {
+            display: flex;
+           }
           #about p,
             #contact label {
                 flex-direction: column;
