@@ -8,6 +8,24 @@
         color: #333;
         line-height: 1.5;
        }
+        header {
+        background: #003366;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+       }
+       header ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 0;
+       }
+       header li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 6px 12px;
+       }
        #about,
         #contact {
             background-color: #ffffff;
@@ -100,35 +118,6 @@
             #contact button {
               width: 100%;
             }
-        }
-        header {
-          background-color: #002b5b;
-          color: #ffffff;
-          text-align: center;
-          padding: 15px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 15);
-        }
-        header h1 {
-          margin: 0;
-          font-size: 1.8em;
-        }
-        nav ul {
-          list-style: none;
-          padding: 0;
-          margin: 10px 0 0;
-          display: flex;
-          justify-content: center;
-          gap: 30px;
-        }
-        nav a {
-          text-decoration: none;
-          color: #e0e8ff;
-          font-weight: 600;
-          transition: color o.3s, border-bottom 0.3s;
-        }
-        nav a:hover {
-          color: #a3c4f3;
-          border-bottom: 2px solid #a3c4f3;
         }
         #home {
           background: linear-gradient(135deg, #003366, #0055aa);
