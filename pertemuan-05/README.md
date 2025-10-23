@@ -7,4 +7,5 @@ Hari ini, Kamis 23 Oktober 2025,saya belajar:
 <li>tombol hamburger</li>
 <li>class menu-toggle</li>
 <li>class menu-toggle</li>
+<li>styling nav mobile</li>
 <li>
