@@ -99,8 +99,8 @@ window.addEventListener("resize", () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const homesection = document.getElementById("home");
+    const homeSection = document.getElementById("home");
     const ucapan = document.createElement("p");
     ucapan.textContent = "Halo! Selamat datang di halaman saya!";
-    homesection.appendChild(ucapan);
+    homeSection.appendChild(ucapan);
 }); 
