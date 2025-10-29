@@ -68,12 +68,12 @@ function showError(inputElement, message) {
 }
 
 function alignErrorMessage(smallEl, inputEl) {
-const isMobile = window.matchMedia("(max-width: 600px)").matches;
-if (isMobile) {
-smallEl.style.marginLeft = "0";
-smallEl.style.width = "100%";
-return;
-}
+    const isMobile = window.matchMedia("(max-width: 600px)").matches;
+    if (isMobile) {
+        smallEl.style.marginLeft = "0";
+        smallEl.style.width = "100%";
+        return;
+    }
 
 const label = inputEl.closest("label");
 if (!label) return;
@@ -86,8 +86,8 @@ smallEl.style.marginLeft = offsetLeft + "px";
 smallEl.style.width = Math.round(rectInput.width) + "px";
 }
 window.addEventListener("resize", () => {
-document.querySelectorAll(".error-msg").forEach(small => {
-const target = document.getElementById(small.dataset.forId);
-if (target) alignErrorMessage(small, target);
-});
+    document.querySelectorAll(".error-msg").forEach(small => {
+        const target = document.getElementById(small.dataset.forId);
+        if (target) alignErrorMessage(small, target); 
+    });
 });
