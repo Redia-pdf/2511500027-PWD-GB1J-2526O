@@ -104,3 +104,6 @@ document.addEventListener("DOMContentLoaded", function () {
     ucapan.textContent = "Halo! Selamat datang di halaman saya!";
     homeSection.appendChild(ucapan);
 }); 
+
+let nama = prompt ( "Siapa nama kamu?");
+alert("Halo," + nama + "!");
