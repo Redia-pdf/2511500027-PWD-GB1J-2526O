@@ -7,7 +7,7 @@ document.getElementById("menuToggle").addEventListener("click", function() {
     const email = document.getElementById("txtEmail");
     const pesan = document.getElementById("txtPesan");
 
-    Document.querySelectorAll(".error-msg").forEach(eL => eL. Remove());
+    document.querySelectorAll(".error-msg").forEach(eL => eL. remove());
     [nama, email, pesan].forEach(el => el.style.border = "");
 
     let isValid = true;
