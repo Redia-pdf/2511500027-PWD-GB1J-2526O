@@ -97,3 +97,10 @@ window.addEventListener("resize", () => {
         if (target) alignErrorMessage(small, target); 
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const homesection = document.getElementById("home");
+    const ucapan = document.createElement("p");
+    ucapan.textContent = "Halo! Selamat datang di halaman saya!";
+    homesection.appendChild(ucapan);
+}); 
