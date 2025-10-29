@@ -38,3 +38,31 @@ document.getElementById("menuToggle").addEventListener("click", function() {
         alert("Terima kasih," + nama.value + "!\nPesan Anda telah dikirim.");
     }
 });
+
+function showError(inputElement, message) {
+    const label = inputElement.closest("label");
+    if (!label) return;
+
+    label.style.flexwrap = "wrap";
+
+    const small = document.createElement("small");
+    small.className = "error-msg";
+    small.textContent = message;
+
+    small.style.color = "red";
+    small.style.fontSize = "14px";
+    small.style.display = "block";
+    small.style.marginTop = "4px";
+    small.style.flexBasis = "100%";
+    small.dataset.forId = inputElement.Id;
+
+    if (inputElement.nextSibling) {
+        label.insertBefore(small, inputElement.nextSibling);
+    }else {
+        label.appendChild(small);
+    }
+    
+    inputElement.style.border = "1px solid red";
+
+    alignErrorMessage(small, inputElement);
+}
