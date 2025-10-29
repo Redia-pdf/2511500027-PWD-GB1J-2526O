@@ -66,3 +66,28 @@ function showError(inputElement, message) {
 
     alignErrorMessage(small, inputElement);
 }
+
+function alignErrorMessage(smallEl, inputEl) {
+const isMobile = window.matchMedia("(max-width: 600px)").matches;
+if (isMobile) {
+smallEl.style.marginLeft = "0";
+smallEl.style.width = "100%";
+return;
+}
+
+const label = inputEl.closest("label");
+if (!label) return;
+
+const rectLabel = label.getBoundingClientRect();
+const rectInput = inputEl.getBoundingClientRect();
+const offsetLeft = Math.max(0, Math.round(rectInput.left - rectLabel.left));
+
+smallEl.style.marginLeft = offsetLeft + "px";
+smallEl.style.width = Math.round(rectInput.width) + "px";
+}
+window.addEventListener("resize", () => {
+document.querySelectorAll(".error-msg").forEach(small => {
+const target = document.getElementById(small.dataset.forId);
+if (target) alignErrorMessage(small, target);
+});
+});
