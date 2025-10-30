@@ -7,4 +7,5 @@ NAMA : Redia Yuana Dinandika Tjandring<br>
 belajar sebagai berikut :
 <ol>
 <li>skrip php hello word</li>
+<li>copy index.hrml, style.css, script.js (pertemuan-05)</li>
 </ol>
