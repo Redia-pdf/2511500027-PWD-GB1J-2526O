@@ -117,4 +117,8 @@ echo "<h4>Hasil var_dump():</h4>";
 echo "<pre>";
 var_dump($hobi);
 echo "</pre>";
+
+for ($i=1; $i<=5; $i++) {
+echo "Perulangan ke-$i <br>";
+}
 ?>
