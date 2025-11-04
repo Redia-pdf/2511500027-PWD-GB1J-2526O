@@ -7,7 +7,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1><?php echo "Halo Dunia PHP!"; ?></h1>
+    <?php
+    $NIM = "2511500027";
+    $Nama = "Redia Yuana Dinandika Tjandring";
+    $Tempat_Lahir = "Kupang";
+    $Tanggal_Lahir = "06 Agustus 2007";
+    $Hobby = "Main futsal,main basket, fotografi, baca komik";
+    $Pasangan = "Tidak Ada";
+    $Pekerjaan = "Tidak Ada";
+    $Nama_Orang_Tua = "Bapak El Tjandring dan Ibu Fyllalinas Feoh";
+    $Nama_Kakak = "Meiriana Cleorita Efelin Tjandring";
+    $Nama_Adek = "Constantin Tjandring";
+    ?> 
     <header>
     <h1>Ini Header</h1>
     <button class="menu-toggle" id="menuToggle" aria-label=""togel Navigation">
@@ -27,13 +38,8 @@
             <p>Ini contoh paragraf HTML.</p>
     </section>
     <section id="about">
-        <?php
-        $nim = "2511500027";
-        $NIM = "2511500027";
-        $Nim = "";
-        ?>
         <h2>Tentang saya</h2>
-        <p><strong>NIM:</strong>2511500027 &trade;</p>
+        <p><strong>NIM:</strong> <?php echo "NIM"; ?> &trade; </p>
         <P><STRONG>Nama Lengkap:</STRONG>Redia Yuana Dinandika Tjnadring &#128516;</P>
         <p><strong>Tempat Lahir:</strong>Kupang &hearts;</p>
         <p><strong>Tanggal Lahir:</strong>06 Agustus 2007</p>
