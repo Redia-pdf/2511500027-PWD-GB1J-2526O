@@ -90,4 +90,10 @@ if ($nilai >= 90) {
     echo "C";
 }
 
+$hari = "senin";
+switch ($hari) {
+    case "senin": echo "awal Minggu!"; break;
+    case "jumat": echo "Hampir Weekend!"; break;
+    default: echo "Hari biasa.";
+}
 ?>
