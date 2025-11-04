@@ -96,4 +96,8 @@ switch ($hari) {
     case "jumat": echo "Hampir Weekend!"; break;
     default: echo "Hari biasa.";
 }
+$hobi = ["Sepak Bola", "Dance", "Baca Komik"];
+foreach ($hobi as $item) {
+    echo "Hobi: $item <br>";
+}
 ?>
