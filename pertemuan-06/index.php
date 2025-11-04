@@ -39,7 +39,7 @@
     </section>
     <section id="about">
         <h2>Tentang saya</h2>
-        <p><strong>NIM:</strong> <?php echo "NIM"; ?> &trade; </p>
+        <p><strong>NIM:</strong> <?php echo "$NIM"; ?> &trade; </p>
         <P><STRONG>Nama Lengkap:</STRONG>Redia Yuana Dinandika Tjnadring &#128516;</P>
         <p><strong>Tempat Lahir:</strong>Kupang &hearts;</p>
         <p><strong>Tanggal Lahir:</strong>06 Agustus 2007</p>
