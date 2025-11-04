@@ -50,4 +50,10 @@
   echo "\nNULL\n";
   var_dump($nilai_akhir);
   echo "</pre>";
+
+  define("KAMPUS", "ISB ATMA LUHUR");
+  const ANGKATAN = 2025;
+
+  echo "Kampus: " . KAMPUS . "<br>";
+  echo "Angkatan: " . ANGKATAN;
 ?>
