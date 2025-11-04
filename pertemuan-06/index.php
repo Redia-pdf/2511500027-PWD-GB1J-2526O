@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1><?php echo "Halo Dunia PHP!"; ?></h1>
     <header>
     <h1>Ini Header</h1>
     <button class="menu-toggle" id="menuToggle" aria-label=""togel Navigation">
@@ -24,13 +25,13 @@
         <section id="home">
         <h2>Selamat Datang</h2>
             <p>Ini contoh paragraf HTML.</p>
-            <?php
-    echo "Halo Dunia!<br>";
-    echo "Nama saya redia";
-
-?>
     </section>
     <section id="about">
+        <?php
+        $nim = "2511500027";
+        $NIM = "2511500027";
+        $Nim = "";
+        ?>
         <h2>Tentang saya</h2>
         <p><strong>NIM:</strong>2511500027 &trade;</p>
         <P><STRONG>Nama Lengkap:</STRONG>Redia Yuana Dinandika Tjnadring &#128516;</P>
