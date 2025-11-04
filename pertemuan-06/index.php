@@ -40,15 +40,15 @@
     <section id="about">
         <h2>Tentang saya</h2>
         <p><strong>NIM:</strong> <?php echo "$NIM"; ?> &trade; </p>
-        <P><STRONG>Nama Lengkap:</STRONG>Redia Yuana Dinandika Tjnadring &#128516;</P>
-        <p><strong>Tempat Lahir:</strong>Kupang &hearts;</p>
-        <p><strong>Tanggal Lahir:</strong>06 Agustus 2007</p>
-        <P><strong>Hobby:</strong>Main futsal, main basket, fotografi, baca komik</P>
-        <p><strong>Pasangan:</strong>Tidak Ada &#128546;</p>
-        <p><strong>pekerjaan:</strong>Tidak ada &#128512;</p>
-        <p><strong>Nama orang tua:</strong> Bapak El Tjandring dan Ibu Fyllalinas Feoh &#128525;</p>
-        <p><strong>Nama Kakak:</strong>Meiriana Cleorita Efelin Tjandring</p>
-        <p><strong>Nama Adik:</strong>Constantin Tjandring</p> <br>
+        <P><STRONG>Nama Lengkap:</STRONG><?php echo "$Nama"; ?> &#128516; </p>
+        <p><strong>Tempat Lahir:</strong> <?php echo "$Tempat_Lahir"; ?> &hearts;</p>
+        <p><strong>Tanggal Lahir:</strong><?php echo "$Tanggal_Lahir"; ?> </p>
+        <P><strong>Hobby:</strong><?php echo "$Hobby"; ?> </p>
+        <p><strong>Pasangan:</strong><?php echo "$Pasangan"; ?> &#128546;</p>
+        <p><strong>pekerjaan:</strong><?php echo "$Pekerjaan"; ?> &#128512;</p>
+        <p><strong>Nama orang tua:</strong><?php echo "$Nama_Orang_Tua"; ?> &#128525;</p>
+        <p><strong>Nama Kakak:</strong><?php echo "$Nama_Kakak"; ?> </p>
+        <p><strong>Nama Adik:</strong><?php echo "$Nama_Adek"; ?> </p>
         <p>HTML digunakan untuk membuat struk halaman web.</p>
     </section>      
     <section id="contact">
