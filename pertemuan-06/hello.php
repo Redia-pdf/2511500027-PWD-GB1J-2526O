@@ -56,4 +56,11 @@
 
   echo "Kampus: " . KAMPUS . "<br>";
   echo "Angkatan: " . ANGKATAN;
+
+// Ini komentar 1 baris
+#Ini juga komentar 1 baris
+/*
+    Ini Komentar
+    lebih dari satu baris
+    */
 ?>
