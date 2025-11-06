@@ -7,5 +7,7 @@ NAMA : Redia Yuana Dinandika Tjandring<br>
 belajar sebagai berikut :
 <ol>
 <li>copy seluruh file dari elearning (punya dosen) untuk latihan pertemuan-07</li>
-<li>
+<li>mehtod dan action index.php</li>
+<li>copy dan reaname index. php menjadi get.php, kemudian buat file baru get_proses.php untuk action</li>
+<li>buat file proses.php</li>
 <ol>
