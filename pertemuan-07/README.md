@@ -11,5 +11,5 @@ belajar sebagai berikut :
 <li>copy dan reaname index. php menjadi get.php, kemudian buat file baru get_proses.php untuk action</li>
 <li>buat file proses.php</li>
 <li> ambil nilai input dari form ke proses.php</li>menyimpan nilai dari input ke variabel</li>
-<li>
+<li>session proses.php dan index.php</li>
 <ol>
