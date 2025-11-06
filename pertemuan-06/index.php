@@ -143,35 +143,60 @@
         $bobot = $sks * $mutu;
         $status = ($mutu > 0) ? "Lulus" : "Gagal";
 
-        echo "<div style='margin-bottom: 25px;'>";
-        echo "<label><b>Nama Matakuliah :</b> $nama</label><br>";
-        echo "SKS : $sks<br>";
-        echo "Kehadiran : $hadir<br>";
-        echo "Tugas : $tugas<br>";
-        echo "UTS : $uts<br>";
-        echo "UAS : $uas<br>";
-        echo "Nilai Akhir : " . number_format($nilaiAkhir, 2) . "<br>";
-        echo "Grade : $grade<br>";
-        echo "Angka Mutu : " . number_format($mutu, 2) . "<br>";
-        echo "Bobot : " . number_format($bobot, 2) . "<br>";
-        echo "Status : $status<br>";
-        echo "</div>";
-        return [$bobot, $sks];
+        echo "<table border='1' cellpadding='8' cellspacing='0' style='border-collapse: collapse; width: 100%; text-align:center;'>";
+        echo "<tr style='background-color:#e0e0e0;'>
+                <th>Nama Mata Kuliah</th>
+                <th>SKS</th>
+                <th>Kehadiran</th>
+                <th>Tugas</th>
+                <th>UTS</th>
+                <th>UAS</th>
+                <th>Nilai Akhir</th>
+                <th>Grade</th>
+                <th>Angka Mutu</th>
+              </tr>";
 
-        list($bobot1, $sks1) = getGrade($namaMatkul1, $sksMatkul1, $nilaiHadir1, $nilaiTugas1, $nilaiUTS1, $nilaiUAS1);
-        list($bobot2, $sks2) = getGrade($namaMatkul2, $sksMatkul2, $nilaiHadir2, $nilaiTugas2, $nilaiUTS2, $nilaiUAS2);
-        list($bobot3, $sks3) = getGrade($namaMatkul3, $sksMatkul3, $nilaiHadir3, $nilaiTugas3, $nilaiUTS3, $nilaiUAS3);
-        list($bobot4, $sks4) = getGrade($namaMatkul4, $sksMatkul4, $nilaiHadir4, $nilaiTugas4, $nilaiUTS4, $nilaiUAS4);
-        list($bobot5, $sks5) = getGrade($namaMatkul5, $sksMatkul5, $nilaiHadir5, $nilaiTugas5, $nilaiUTS5, $nilaiUAS5);
+        $matkulData = [
+            [$namaMatkul1, $sksMatkul1, $nilaiHadir1, $nilaiTugas1, $nilaiUTS1, $nilaiUAS1, $nilaiAkhir1],
+            [$namaMatkul2, $sksMatkul2, $nilaiHadir2, $nilaiTugas2, $nilaiUTS2, $nilaiUAS2, $nilaiAkhir2],
+            [$namaMatkul3, $sksMatkul3, $nilaiHadir3, $nilaiTugas3, $nilaiUTS3, $nilaiUAS3, $nilaiAkhir3],
+            [$namaMatkul4, $sksMatkul4, $nilaiHadir4, $nilaiTugas4, $nilaiUTS4, $nilaiUAS4, $nilaiAkhir4],
+            [$namaMatkul5, $sksMatkul5, $nilaiHadir5, $nilaiTugas5, $nilaiUTS5, $nilaiUAS5, $nilaiAkhir5]
+        ];
 
-        $totalBobot = $bobot1 + $bobot2 + $bobot3 + $bobot4 + $bobot5;
-        $totalSKS = $sks1 + $sks2 + $sks3 + $sks4 + $sks5;
-        $IPK = $totalBobot / $totalSKS;
+         $totalBobot = 0;
+        $totalSKS = 0;
 
-        echo "<hr>";
-        echo "<b>Total Bobot :</b> " . number_format($totalBobot, 2) . "<br>";
-        echo "<b>Total SKS :</b> $totalSKS<br>";
-        echo "<b>IPK :</b> " . number_format($IPK, 2);
+        foreach ($matkulData as $m) {
+            list($nama, $sks, $hadir, $tugas, $uts, $uas, $akhir) = $m;
+            list($grade, $mutu) = getGrade($akhir);
+            $bobot = $sks * $mutu;
+
+            echo "<tr>
+                    <td>$nama</td>
+                    <td>$sks</td>
+                    <td>$hadir</td>
+                    <td>$tugas</td>
+                    <td>$uts</td>
+                    <td>$uas</td>
+                    <td>" . number_format($akhir, 2) . "</td>
+                    <td>$grade</td>
+                    <td>" . number_format($mutu, 2) . "</td>
+                  </tr>";
+
+            $totalBobot += $bobot;
+            $totalSKS += $sks;
+        }
+
+         echo "</table>";
+
+        $ipk = $totalBobot / $totalSKS;
+        $statusAkhir = ($ipk >= 2.00) ? "Lulus" : "Gagal";
+
+        echo "<p><b>Total Bobot :</b> " . number_format($totalBobot, 2) . "</p>";
+        echo "<p><b>Total SKS :</b> $totalSKS</p>";
+        echo "<p><b>IPK :</b> " . number_format($ipk, 2) . "</p>";
+        echo "<p><b>Status :</b> $statusAkhir</p>";
         ?>
     </section>
     <footer>
