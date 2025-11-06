@@ -10,4 +10,5 @@ belajar sebagai berikut :
 <li>mehtod dan action index.php</li>
 <li>copy dan reaname index. php menjadi get.php, kemudian buat file baru get_proses.php untuk action</li>
 <li>buat file proses.php</li>
+<li> ambil nilai input dari form ke proses.php</li>
 <ol>
