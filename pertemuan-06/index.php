@@ -139,7 +139,8 @@
         }
         return [$grade, $mutu];
         }
-
+        
+        echo "<div class='table-container'>";
         echo "<table border='1' cellpadding='8' cellspacing='0' style='border-collapse: collapse; width: 100%; text-align:center;'>";
         echo "<tr style='background-color:#e0e0e0;'>
                 <th>Nama Mata Kuliah</th>
@@ -186,6 +187,7 @@
         }
 
          echo "</table>";
+         echo "</div>";
 
         $ipk = $totalBobot / $totalSKS;
         $statusAkhir = ($ipk >= 2.00) ? "Lulus" : "Gagal";
