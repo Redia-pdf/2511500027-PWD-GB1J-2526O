@@ -70,6 +70,110 @@
         </form>
     </section>
     </main>
+    <section id="ipk">
+        <h2> Nilai Saya</h2>
+        <?php
+        $namaMatkul1 = "Kalkulus";
+        $namaMatkul2 = "Logika Informatika";
+        $namaMatkul3 = "Konsep Basis Data";
+        $namaMatkul4 = "Aplikasi Perkantoran";
+        $namaMatkul5 = "Pemrograman Web Dasar";
+
+        $sksMatkul1 = "3";
+        $sksMatkul2 = "3";
+        $sksMatkul3 = "3";
+        $sksMatkul4 = "3";
+        $sksMatkul5 = "3";
+
+        $nilaiHadir1 = "95";
+        $nilaiHadir2 = "90";
+        $nilaiHadir3 = "80";
+        $nilaiHadir4 = "95";
+        $nilaiHadir5 = "100";
+
+        $nilaiTugas1 = "80";
+        $nilaiTugas2 = "90";
+        $nilaiTugas3 = "85";
+        $nilaiTugas4 = "80";
+        $nilaiTugas5 = "90";
+        
+        $nilaiUTS1 = "80";
+        $nilaiUTS2 = "90";
+        $nilaiUTS3 = "80";
+        $nilaiUTS4 = "95";
+        $nilaiUTS5 = "85";
+
+        $nilaiUAS1 = "75";
+        $nilaiUAS2 = "95";
+        $nilaiUAS3 = "90";
+        $nilaiUAS4 = "85";
+        $nilaiUAS5 = "95";
+
+        $nilaiAkhir1 = ($nilaiHadir1 * 0.1) + ($nilaiTugas1 * 0.2) + ($nilaiUTS1 * 0.3) + ($nilaiUAS1 * 0.4);
+        $nilaiAkhir2 = ($nilaiHadir2 * 0.1) + ($nilaiTugas2 * 0.2) + ($nilaiUTS2 * 0.3) + ($nilaiUAS2 * 0.4);
+        $nilaiAkhir3 = ($nilaiHadir3 * 0.1) + ($nilaiTugas3 * 0.2) + ($nilaiUTS3 * 0.3) + ($nilaiUAS3 * 0.4);
+        $nilaiAkhir4 = ($nilaiHadir4 * 0.1) + ($nilaiTugas4 * 0.2) + ($nilaiUTS4 * 0.3) + ($nilaiUAS4 * 0.4);
+        $nilaiAkhir5 = ($nilaiHadir5 * 0.1) + ($nilaiTugas5 * 0.2) + ($nilaiUTS5 * 0.3) + ($nilaiUAS5 * 0.4);
+
+        function getGrade($nilaiAkhir) {
+        if ($nilaiAkhir >= 91) {
+            $grade = "A";  $mutu = 4.00;
+        } elseif ($nilaiAkhir >= 81) {
+            $grade = "A-"; $mutu = 3.70;
+        } elseif ($nilaiAkhir >= 76) {
+            $grade = "B+"; $mutu = 3.30;
+        } elseif ($nilaiAkhir >= 71) {
+            $grade = "B";  $mutu = 3.00;
+        } elseif ($nilaiAkhir >= 66) {
+            $grade = "B-"; $mutu = 2.70;
+        } elseif ($nilaiAkhir >= 61) {
+            $grade = "C+"; $mutu = 2.30;
+        } elseif ($nilaiAkhir >= 56) {
+            $grade = "C";  $mutu = 2.00;
+        } elseif ($nilaiAkhir >= 51) {
+            $grade = "C-"; $mutu = 1.70;
+        } elseif ($nilaiAkhir >= 36) {
+            $grade = "D";  $mutu = 1.00;
+        } else {
+            $grade = "E";  $mutu = 0.00;
+        }
+        return [$grade, $mutu];
+        }
+
+        $bobot = $sks * $mutu;
+        $status = ($mutu > 0) ? "Lulus" : "Gagal";
+
+        echo "<div style='margin-bottom: 25px;'>";
+        echo "<label><b>Nama Matakuliah :</b> $nama</label><br>";
+        echo "SKS : $sks<br>";
+        echo "Kehadiran : $hadir<br>";
+        echo "Tugas : $tugas<br>";
+        echo "UTS : $uts<br>";
+        echo "UAS : $uas<br>";
+        echo "Nilai Akhir : " . number_format($nilaiAkhir, 2) . "<br>";
+        echo "Grade : $grade<br>";
+        echo "Angka Mutu : " . number_format($mutu, 2) . "<br>";
+        echo "Bobot : " . number_format($bobot, 2) . "<br>";
+        echo "Status : $status<br>";
+        echo "</div>";
+        return [$bobot, $sks];
+
+        list($bobot1, $sks1) = getGrade($namaMatkul1, $sksMatkul1, $nilaiHadir1, $nilaiTugas1, $nilaiUTS1, $nilaiUAS1);
+        list($bobot2, $sks2) = getGrade($namaMatkul2, $sksMatkul2, $nilaiHadir2, $nilaiTugas2, $nilaiUTS2, $nilaiUAS2);
+        list($bobot3, $sks3) = getGrade($namaMatkul3, $sksMatkul3, $nilaiHadir3, $nilaiTugas3, $nilaiUTS3, $nilaiUAS3);
+        list($bobot4, $sks4) = getGrade($namaMatkul4, $sksMatkul4, $nilaiHadir4, $nilaiTugas4, $nilaiUTS4, $nilaiUAS4);
+        list($bobot5, $sks5) = getGrade($namaMatkul5, $sksMatkul5, $nilaiHadir5, $nilaiTugas5, $nilaiUTS5, $nilaiUAS5);
+
+        $totalBobot = $bobot1 + $bobot2 + $bobot3 + $bobot4 + $bobot5;
+        $totalSKS = $sks1 + $sks2 + $sks3 + $sks4 + $sks5;
+        $IPK = $totalBobot / $totalSKS;
+
+        echo "<hr>";
+        echo "<b>Total Bobot :</b> " . number_format($totalBobot, 2) . "<br>";
+        echo "<b>Total SKS :</b> $totalSKS<br>";
+        echo "<b>IPK :</b> " . number_format($IPK, 2);
+        ?>
+    </section>
     <footer>
         <p>&copy; 2025 Redia Yuana Dinandika Tjandring [2511500027] &reg; &trade;</p>
     </footer>
