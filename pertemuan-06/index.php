@@ -152,6 +152,8 @@
                 <th>Nilai Akhir</th>
                 <th>Grade</th>
                 <th>Angka Mutu</th>
+                <th>Bobot</th>
+                <th>Status</th>
               </tr>";
 
         $matkulData = [
@@ -169,6 +171,7 @@
             list($nama, $sks, $hadir, $tugas, $uts, $uas, $akhir) = $m;
             list($grade, $mutu) = getGrade($akhir);
             $bobot = $sks * $mutu;
+            $status = ($mutu > 0) ? "Lulus" : "Tidak Lulus";
 
             echo "<tr>
                     <td>$nama</td>
@@ -180,6 +183,8 @@
                     <td>" . number_format($akhir, 2) . "</td>
                     <td>$grade</td>
                     <td>" . number_format($mutu, 2) . "</td>
+                    <td>" . number_format($bobot, 2) . "</td>
+                    <td>$status</td>
                   </tr>";
 
             $totalBobot += $bobot;
