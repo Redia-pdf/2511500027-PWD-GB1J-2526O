@@ -1,3 +1,3 @@
 <?php
-  echo "ijan";
+  echo $_POST["txtNama"];
 ?>
