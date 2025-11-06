@@ -186,10 +186,60 @@
               background:rgba(0255, 255, 255, .08);
               backdrop-filter: saturate(120%);
             }
-        }
+            table {
+              font-size: 12px;           
+            }
+
+            th, td {
+              padding: 6px;
+            }
+
+            section#ipk h2 {
+              font-size: 18px;
+            }
+
+            p {
+              font-size: 13px;
+           }
+          }
         footer {
           background: #222;
           color: #aaa;
           text-align: center;
           padding: 10px;
         }
+        section#ipk {
+          padding: 20px;
+          font-family: Arial, sans-serif;
+        }
+
+        section#ipk h2 {
+          text-align: center;
+          color: #333;
+          margin-bottom: 15px;
+        }
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          font-size: 14px;
+        }
+
+        th, td {
+          padding: 8px;
+          text-align: center;
+          border: 1px solid #ccc;
+        }
+
+        th {
+          background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+          background-color: #fafafa;
+        }
+
+        .table-container {
+          overflow-x: auto;
+        }
+ 
