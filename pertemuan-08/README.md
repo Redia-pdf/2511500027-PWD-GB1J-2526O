@@ -15,4 +15,7 @@ Proses saya mengerjakan UTS ini sebagai berikut:<br>
   <li> styling section form</li>
   <li> menambah session dari proses.php ke index.php</li>
   <li>session biodata</li>
+  <li>session proses.php dan index.php</li>
 </ol>
+
+

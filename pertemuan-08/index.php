@@ -15,6 +15,56 @@ $sespesan = "";
 if (isset($_SESSION["sespesan"])):
   $sespesan = $_SESSION["sespesan"];
 endif;
+
+$sesnim = "";
+if (isset($_SESSION["nim"])):
+  $sesnim = $_SESSION["nim"];
+endif;
+
+$sesnamaa = "";
+if (isset($_SESSION["namaa"])):
+  $sesnamaa = $_SESSION["namaa"];
+endif;
+
+$sestempat = "";
+if (isset($_SESSION["tempat"])):
+  $sestempat = $_SESSION["tempat"];
+endif;
+
+$sestanggal = "";
+if (isset($_SESSION["tanggal"])):
+  $sestanggal = $_SESSION["tanggal"];
+endif;
+
+$seshobi = "";
+if (isset($_SESSION["hobi"])):
+  $seshobi = $_SESSION["hobi"];
+endif;
+
+$sespasangan = "";
+if (isset($_SESSION["pasangan"])):
+  $sespasangan = $_SESSION["pasangan"];
+endif;
+
+$sespekerjaan = "";
+if (isset($_SESSION["pekerjaan"])):
+  $sespekerjaan = $_SESSION["pekerjaan"];
+endif;
+
+$sesortu = "";
+if (isset($_SESSION["ortu"])):
+  $sesortu = $_SESSION["ortu"];
+endif;
+
+$seskakak = "";
+if (isset($_SESSION["kakak"])):
+  $seskakak = $_SESSION["kakak"];
+endif;
+
+$sesadik = "";
+if (isset($_SESSION["adik"])):
+  $sesadik = $_SESSION["adik"];
+endif;
 ?>
 
 <!DOCTYPE html>
@@ -54,28 +104,28 @@ endif;
 
     <section id="biodata">
       <h2>Profil Mahasiswa</h2>
-      <p><label><strong>NIM :</strong> <?php $_SESSION["nim"] ?> </label></p>
-      <p><label><strong>Nama Lengkap :</strong> <?php $_SESSION["nama"] ?> </label></p>
-      <p><label><strong>Tempat Lahir :</strong> <?php $_SESSION["tempat"] ?> </label></p>
-      <p><label><strong> Tanggal Lahir :</strong> <?php $_SESSION["tanggal"] ?> </label></p>
-      <p><label><strong>Hobi :</strong> <?php $_SESSION["hobi"] ?> </label></p>
-      <p><label><strong>Pasangan :</strong> <?php $_SESSION["pasangan"] ?> </label></p>
-      <p><label><strong>Pekerjaan :</strong> <?php $_SESSION["pekerjaan"] ?> </label></p>
-      <p><label><strong>Nama Orang Tua :</strong> <?php $_SESSION["ortu"] ?> </label></p>
-      <p><label><strong>Nama Kakak :</strong> <?php $_SESSION["kakak"] ?> </label></p>
-      <p><label><strong>Nama Adik :</strong> <?php $_SESSION["adik"] ?> </label></p>
+      <p><label><strong>NIM :</strong> <?php echo $sesnim ?> </label></p>
+      <p><label><strong>Nama Lengkap :</strong> <?php echo $sesnamaa ?> </label></p>
+      <p><label><strong>Tempat Lahir :</strong> <?php echo $sestempat ?> </label></p>
+      <p><label><strong> Tanggal Lahir :</strong> <?php echo $sestanggal ?> </label></p>
+      <p><label><strong>Hobi :</strong> <?php echo $seshobi ?> </label></p>
+      <p><label><strong>Pasangan :</strong> <?php echo $sespasangan ?> </label></p>
+      <p><label><strong>Pekerjaan :</strong> <?php echo $sespekerjaan ?> </label></p>
+      <p><label><strong>Nama Orang Tua :</strong> <?php echo $sesortu ?> </label></p>
+      <p><label><strong>Nama Kakak :</strong> <?php echo $seskakak ?> </label></p>
+      <p><label><strong>Nama Adik :</strong> <?php echo $sesadik ?> </label></p>
     </section>
 
     <section id="form">
       <h2> Form Biodata Mahasiswa </h2>
       <form action="proses.php" method="POST" >
 
-      <label for="nim"><span>Nama NIM:</span>
+      <label for="nim"><span>NIM:</span>
        <input type="text" id="nim" name="nim" placeholder="Masukkan NIM" required>
     </label>
 
     <label for="nama"><span>Nama Lengkap:</span>
-      <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+      <input type="text" id="namaa" name="namaa" placeholder="Masukkan nama lengkap" required>
     </label>
 
     <label for="tempat"><span>Tempat Lahir:</span>
