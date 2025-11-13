@@ -151,12 +151,14 @@
             display: flex;
            }
           #about p,
-            #contact label {
+            #contact label 
+            #ipk {
                 flex-direction: column;
                 align-items: flex-start;
             }
             #about strong,
-            #contact label>span {
+            #contact label>span 
+            #ipk {
                 text-align: left;
                 padding-right: 0;
                 margin-bottom: 2px;
