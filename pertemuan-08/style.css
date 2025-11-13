@@ -102,6 +102,11 @@ header li a:active {
   border-bottom: 1px solid #e6e6e6;
 }
 
+#biodata p,
+#biodata strong {
+   text-align: justify;
+
+}
 #biodata strong,
 #form label>span,
 #about strong,
@@ -115,7 +120,7 @@ header li a:active {
 }
 
 #form input,
-#form textarea,
+#form textarea
 #contact input,
 #contact textarea {
   flex: 1;
