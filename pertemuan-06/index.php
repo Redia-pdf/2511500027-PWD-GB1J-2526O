@@ -115,6 +115,24 @@
         $nilaiAkhir4 = ($nilaiHadir4 * 0.1) + ($nilaiTugas4 * 0.2) + ($nilaiUTS4 * 0.3) + ($nilaiUAS4 * 0.4);
         $nilaiAkhir5 = ($nilaiHadir5 * 0.1) + ($nilaiTugas5 * 0.2) + ($nilaiUTS5 * 0.3) + ($nilaiUAS5 * 0.4);
 
+        if ($nilaiHadir1 < 70):
+            $grade1 = "E";
+        endif;
+         if ($nilaiHadir2 < 70):
+            $grade2 = "E";
+        endif;
+        if ($nilaiHadir3 < 70):
+            $grade3 = "E";
+        endif;
+        if ($nilaiHadir4 < 70):
+            $grade4 = "E";
+        endif;
+        if ($nilaiHadir5 < 70):
+            $grade5 = "E";
+        endif;
+        
+
+
         function getGrade($nilaiAkhir) {
         if ($nilaiAkhir >= 91) {
             $grade = "A";  $mutu = 4.00;
@@ -195,7 +213,7 @@
          echo "</div>";
 
         $ipk = $totalBobot / $totalSKS;
-        $statusAkhir = ($ipk >= 2.00) ? "Lulus" : "Gagal";
+        $statusAkhir = ($ipk >= 2.00) ? "LULUS" : "GAGAL";
 
         echo "<p><b>Total Bobot :</b> " . number_format($totalBobot, 2) . "</p>";
         echo "<p><b>Total SKS :</b> $totalSKS</p>";
