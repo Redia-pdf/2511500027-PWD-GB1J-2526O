@@ -1,8 +1,8 @@
 <?php
 session_start();
-  $sesnama = $_SESSION ["sesnama"];
-  $sesemail = $_SESSION ["sesemail"];
-  $sespesan = $_SESSION ["sespesan"]; 
+  $sesnama = $_SESSION ["nama"];
+  $sesemail = $_SESSION ["email"];
+  $sespesan = $_SESSION ["pesan"]; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
