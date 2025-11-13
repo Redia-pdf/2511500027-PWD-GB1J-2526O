@@ -10,8 +10,10 @@ belajar sebagai berikut :
 <li>mehtod dan action index.php</li>
 <li>copy dan reaname index. php menjadi get.php, kemudian buat file baru get_proses.php untuk action</li>
 <li>buat file proses.php</li>
-<li> ambil nilai input dari form ke proses.php</li>menyimpan nilai dari input ke variabel</li>
+<li> ambil nilai input dari form ke proses.php</li>
+<li>menyimpan nilai dari input ke variabel</li>
 <li>session proses.php dan index.php</li>
 <li>redirect ke index.php</li>
+<li>sesuaikan get ke post </li>
 <li>
 <ol>
