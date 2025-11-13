@@ -11,4 +11,7 @@ Proses saya mengerjakan UTS ini sebagai berikut:<br>
   <li>silahkan diisi sesuai proses pengerjaan kalian masing-masing</li>
   <li>menambah section biodata di index.php</li>
   <li> styling section biodata</li>
+  <li> membuat section form biotata</li>
+  <li> styling section form</li>
+  <li> menambah session dari proses.php ke index.php</li>
 </ol>

@@ -53,19 +53,67 @@ endif;
     </section>
 
     <section id="biodata">
-      <h2>Biodata Mahasiswa</h2>
-      <p>
-      <label><strong>NIM :</strong> <?php  ?> </label>
-      <label><strong>Nama Lengkap :</strong> <?php ?> </label>
-      <label><strong>Tempat Lahir :</strong> <?php ?> </label>
-      <label><strong> Tanggal Lahir :</strong> <?php ?> </label>
-      <label><strong>Hobi :</strong> <?php ?> </label>
-      <label><strong>Pasangan :</strong> <?php ?> </label>
-      <label><strong>Pekerjaan :</strong> <?php ?> </label>
-      <label><strong>Nama Orang Tua :</strong> <?php ?> </label>
-      <label><strong>Nama Kakak :</strong> <?php ?> </label>
-      <label><strong>Nama Adik :</strong> <?php ?> </label>
-      </p>
+      <h2>Profil Mahasiswa</h2>
+      <p><label><strong>NIM :</strong> <?php $_SESSION["nim"] ?> </label></p>
+      <p><label><strong>Nama Lengkap :</strong> <?php$_SESSION["nama"] ?> </label></p>
+      <p><label><strong>Tempat Lahir :</strong> <?php $_SESSION["tempat"] ?> </label></p>
+      <p><label><strong> Tanggal Lahir :</strong> <?php $_SESSION["tanggal"] ?> </label></p>
+      <p><label><strong>Hobi :</strong> <?php $_SESSION["hobi"] ?> </label></p>
+      <p><label><strong>Pasangan :</strong> <?php $_SESSION["pasangan"] ?> </label></p>
+      <p><label><strong>Pekerjaan :</strong> <?php $_SESSION["pekerjaan"] ?> </label></p>
+      <p><label><strong>Nama Orang Tua :</strong> <?php $_SESSION["ortu"] ?> </label></p>
+      <p><label><strong>Nama Kakak :</strong> <?php$_SESSION["kakak"] ?> </label></p>
+      <p><label><strong>Nama Adik :</strong> <?php $_SESSION["adik"] ?> </label></p>
+    </section>
+
+    <section id="form">
+      <h2> Form Biodata Mahasiswa </h2>
+      <form action="proses.php" method="POST" >
+
+      <label for="nim"><span>Nama NIM:</span>
+       <input type="text" id="nim" name="nim" placeholder="Masukkan NIM" required>
+    </label>
+
+    <label for="nama"><span>Nama Lengkap:</span>
+      <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required>
+    </label>
+
+    <label for="tempat"><span>Tempat Lahir:</span>
+      <input type="text" id="tempat" name="tempat" placeholder="Masukkan tempat lahir">
+    </label>
+
+    <label for="tanggal"><span>Tanggal Lahir:</span>
+      <input type="date" id="tanggal" name="tanggal">
+    </label>
+
+    <label for="hobi"><span>Hobi:</span>
+      <input type="text" id="hobi" name="hobi" placeholder="Masukkan hobi">
+    </label>
+
+    <label for="pasangan"><span>Pasangan:</span>
+      <input type="text" id="pasangan" name="pasangan" placeholder="Masukan Pasangan jika ada">
+    </label>
+
+    <label for="pekerjaan"><span>Pekerjaan:</span>
+      <input type="text" id="pekerjaan" name="pekerjaan" placeholder="Masukan pekerjaan jika ada">
+    </label>
+
+    <label for="ortu"><span>Nama Orang Tua:</span>
+      <input type="text" id="ortu" name="ortu" placeholder="masukan Nama Orang Tua Kalian">
+    </label>
+
+    <label for="kakak"><span>Nama Kakak:</span>
+      <input type="text" id="kakak" name="kakak" placeholder="Masukan Nama kakak kalian jika ada">
+    </label>
+
+    <label for="adik"><span>Nama Adik:</span>
+      <input type="text" id="adik" name="adik" placeholder=" Masukan Nama Adik jika ada">
+    </label>
+
+    <div class="button-group">
+      <button type="submit">Kirim</button>
+      <button type="reset">Batal</button>
+      </form>
     </section>
     <section id="about">
       <?php

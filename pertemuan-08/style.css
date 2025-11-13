@@ -50,6 +50,8 @@ header li a:active {
 }
 
 #home:target~header nav a[href="#home"],
+#biodata:target~header nav a[href="#biodata"],
+#form:target~header nav a[href="#form"] 
 #about:target~header nav a[href="#about"],
 #contact:target~header nav a[href="#contact"] {
   background: #fff;
@@ -61,6 +63,7 @@ header li a:active {
 
 #home,
 #biodata,
+#form,
 #about,
 #contact {
   background-color: #ffffff;
@@ -73,6 +76,7 @@ header li a:active {
 
 #home h2,
 #biodata h2,
+#form h2,
 #about h2,
 #contact h2 {
   color: #003366;
@@ -86,6 +90,8 @@ header li a:active {
   text-align: justify;
 }
 
+#biodata p,
+#form label,
 #about p,
 #contact label {
   display: flex;
@@ -97,6 +103,7 @@ header li a:active {
 }
 
 #biodata strong,
+#form label>span,
 #about strong,
 #contact label>span {
   min-width: 180px;
@@ -107,6 +114,8 @@ header li a:active {
   flex-shrink: 0;
 }
 
+#form input,
+#form textarea,
 #contact input,
 #contact textarea {
   flex: 1;
@@ -119,6 +128,7 @@ header li a:active {
   box-sizing: border-box;
 }
 
+#form button,
 #contact button {
   margin-top: 10px;
   display: inline-block;
@@ -131,24 +141,28 @@ header li a:active {
   margin-right: 8px;
 }
 
+#form button[type="submit"],
 #contact button[type="submit"] {
   background-color: #003366;
   color: #fff;
   font-weight: 600;
 }
 
+#form button [type="reset"],
 #contact button[type="reset"] {
   background-color: #b4b4b4;
   color: #272727;
   font-weight: 500;
 }
 
+#form button[type="submit"]:hover,
 #contact button[type="submit"]:hover {
   background-color: #0379ee;
   transform: translateY(-1px);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
+#form button[type="reset"]:hover,
 #contact button[type="reset"]:hover {
   background-color: #cccccc;
   transform: translateY(-1px);
