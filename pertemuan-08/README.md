@@ -14,4 +14,5 @@ Proses saya mengerjakan UTS ini sebagai berikut:<br>
   <li> membuat section form biotata</li>
   <li> styling section form</li>
   <li> menambah session dari proses.php ke index.php</li>
+  <li>session biodata</li>
 </ol>

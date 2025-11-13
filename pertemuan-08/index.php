@@ -55,14 +55,14 @@ endif;
     <section id="biodata">
       <h2>Profil Mahasiswa</h2>
       <p><label><strong>NIM :</strong> <?php $_SESSION["nim"] ?> </label></p>
-      <p><label><strong>Nama Lengkap :</strong> <?php$_SESSION["nama"] ?> </label></p>
+      <p><label><strong>Nama Lengkap :</strong> <?php $_SESSION["nama"] ?> </label></p>
       <p><label><strong>Tempat Lahir :</strong> <?php $_SESSION["tempat"] ?> </label></p>
       <p><label><strong> Tanggal Lahir :</strong> <?php $_SESSION["tanggal"] ?> </label></p>
       <p><label><strong>Hobi :</strong> <?php $_SESSION["hobi"] ?> </label></p>
       <p><label><strong>Pasangan :</strong> <?php $_SESSION["pasangan"] ?> </label></p>
       <p><label><strong>Pekerjaan :</strong> <?php $_SESSION["pekerjaan"] ?> </label></p>
       <p><label><strong>Nama Orang Tua :</strong> <?php $_SESSION["ortu"] ?> </label></p>
-      <p><label><strong>Nama Kakak :</strong> <?php$_SESSION["kakak"] ?> </label></p>
+      <p><label><strong>Nama Kakak :</strong> <?php $_SESSION["kakak"] ?> </label></p>
       <p><label><strong>Nama Adik :</strong> <?php $_SESSION["adik"] ?> </label></p>
     </section>
 
