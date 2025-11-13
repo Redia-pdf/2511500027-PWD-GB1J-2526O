@@ -52,7 +52,7 @@ endif;
       <p>Ini contoh paragraf HTML.</p>
     </section>
 
-    <section id="Biodata">
+    <section id="biodata">
       <h2>Biodata Mahasiswa</h2>
       <p>
       <label><strong>NIM :</strong> <?php  ?> </label>

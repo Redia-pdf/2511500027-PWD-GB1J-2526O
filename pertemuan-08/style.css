@@ -60,6 +60,7 @@ header li a:active {
 }
 
 #home,
+#biodata,
 #about,
 #contact {
   background-color: #ffffff;
@@ -71,6 +72,7 @@ header li a:active {
 }
 
 #home h2,
+#biodata h2,
 #about h2,
 #contact h2 {
   color: #003366;
@@ -94,6 +96,7 @@ header li a:active {
   border-bottom: 1px solid #e6e6e6;
 }
 
+#biodata strong,
 #about strong,
 #contact label>span {
   min-width: 180px;
