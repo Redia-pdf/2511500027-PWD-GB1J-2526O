@@ -8,4 +8,6 @@ belajar sebagai berikut :
 <ol>
 <li>skrip php hello word</li>
 <li>copy index.hrml, style.css, script.js (pertemuan-05)</li>
+<li>nuat kondisi kehadiran dibawah 70 = grade E</li>
+<li>status akhir 1 - 5 LULUS ATAU GAGAL</li>
 </ol>

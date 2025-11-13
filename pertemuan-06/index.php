@@ -189,7 +189,7 @@
             list($nama, $sks, $hadir, $tugas, $uts, $uas, $akhir) = $m;
             list($grade, $mutu) = getGrade($akhir);
             $bobot = $sks * $mutu;
-            $status = ($mutu > 0) ? "Lulus" : "Tidak Lulus";
+            $status = ($mutu > 0) ? "LULUS" : "GAGAL";
 
             echo "<tr>
                     <td>$nama</td>
