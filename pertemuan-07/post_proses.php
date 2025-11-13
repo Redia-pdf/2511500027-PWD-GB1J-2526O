@@ -1,8 +1,7 @@
 <?php
 session_start();
-  $_SESSION ["nama"] =$_POST["txtnama"];
-  $_SESSION ["email"] = $_POST["txtemail"];
-  $_SESSION ["pesan"] = $_POST["txtpesan"];
-  echo  $_SESSION ["nama"] . $_SESSION ["email"] .   $_SESSION ["pesan"];
+  $_SESSION ["sesnama"] =$_POST["sesnama"];
+  $_SESSION ["sesemail"] = $_POST["sesemail"];
+  $_SESSION ["sespesan"] = $_POST["sespesan"];
   #header("Location : post.php");
 ?>
