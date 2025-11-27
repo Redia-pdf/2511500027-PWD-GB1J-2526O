@@ -20,21 +20,8 @@ $arrBiodata = [
     "adik" => $_POST["txtNmAdik"] ?? "",
 ];
 
-forEach ($dataBiodata as $k => $v) {
-    echo "<p><strong>$k</strong>: $v</p>";
-}  
 $_SESSION["Biodata"] = $arrBiodata;
 header("location: index.php#about");
 
-$_SESSION["txtNim"] = $txtNim;
-$_SESSION["txtNmLengkap"] = $txtNmLengkap;
-$_SESSION["txtT4Lhr"] = $txtT4Lhr;
-$_SESSION["txtTglLhr"] = $txtTglLhr;
-$_SESSION["txtHobi"] = $txtHobi;
-$_SESSION["txtPasangan"] = $txtPasangan;
-$_SESSION["txtKerja"] = $txtKerja;
-$_SESSION["txtNmOrtu"] = $txtNmOrtu;
-$_SESSION["txtNmKakak"] = $txtNmKakak;
-$_SESSION["txtNmAdik"] = $txtNmAdik;
 header("location: index.php");
 ?>
