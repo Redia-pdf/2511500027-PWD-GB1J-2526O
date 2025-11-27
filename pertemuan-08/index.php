@@ -165,6 +165,7 @@ endif;
       <button type="reset">Batal</button>
       </form>
     </section>
+    
     <section id="about">
       <?php
       $nim = 2511500010;
