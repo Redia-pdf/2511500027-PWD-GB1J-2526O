@@ -11,5 +11,7 @@
   <li>tangkap session dari file proses selesai</li>
   <li>echo session ke nilai label section contact</li>
   <li>echo session ke nilai label section contact selesai</li>
-  <li>ubah data post ke array associative</li>
+  <li>ubah data post ke array associative</li> 
+  <li>menghapus dan menambah $session ["Biodata"] = $arrBiodata yang lebih efisien</li>
+  <li> mengubah session di index.php ke lebih sederhana</li>
 </ol>
