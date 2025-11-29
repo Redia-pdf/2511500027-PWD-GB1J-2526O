@@ -18,4 +18,5 @@
   <li> menambahkan file fungsi.php di petemuan-09 dan mengisi kode fungsi untuk form input</li>
   <li>menambah fungsi untuk menghasilkan tanggal</li>
   <li> menambahkan kode fungsi untuk merender hasil atau output boidata</li>
+  <li> menghapus kode htmlspesialchars di index.php dan di ganti dengan kode tampilkanBiodata dari fungsi.php</li>
 </ol>
