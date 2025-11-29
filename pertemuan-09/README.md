@@ -16,4 +16,5 @@
   <li> mengubah session di index.php ke lebih sederhana</li>
   <li> menambahkan looping foreach dan mengahapus p section about</li>
   <li> menambahkan file fungsi.php di petemuan-09 dan mengisi kode fungsi untuk form input</li>
+  <li>menambah fungsi untuk menghasilkan tanggal</li>
 </ol>
