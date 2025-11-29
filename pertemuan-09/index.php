@@ -145,18 +145,15 @@ endif;
         <button type="submit">Kirim</button>
         <button type="reset">Batal</button>
       </form>
-
-      <?php if (!empty($sesnama)): ?>
-        <br><hr>
-        <h2>Yang menghubungi kami</h2>
-        <p><strong>Nama :</strong> <?php echo $sesnama ?></p>
-        <p><strong>Email :</strong> <?php echo $sesemail ?></p>
-        <p><strong>Pesan :</strong> <?php echo $sespesan ?></p>
-      <?php endif; ?>
-
-
-
+    </section>   
+    
+    <section id= "hasil">
+     <h2>Yang Menghubungi :</h2>
+        <p><strong>Nama :</strong> <?= $txtNama ?></p>
+        <p><strong>Email :</strong> <?= $txtEmail ?></p>
+        <p><strong>Pesan :</strong> <?= $txtPesan ?></p> 
     </section>
+
   </main>
 
   <footer>

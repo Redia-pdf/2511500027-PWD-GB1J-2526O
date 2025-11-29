@@ -52,7 +52,8 @@ header li a:active {
 #home:target~header nav a[href="#home"],
 #about:target~header nav a[href="#about"],
 #contact:target~header nav a[href="#contact"],
-#biodata:target~header nav a[href="#biodata"] {
+#biodata:target~header nav a[href="#biodata"],
+ #hasil:target~header nav a[href="#hasil"]{
   background: #fff;
   color: #003366;
   font-weight: bold;
@@ -63,7 +64,8 @@ header li a:active {
 #home,
 #about,
 #contact,
-#biodata {
+#biodata,
+#hasil {
   background-color: #ffffff;
   border-radius: 10px;
   padding: 20px;
@@ -75,7 +77,8 @@ header li a:active {
 #home h2,
 #about h2,
 #contact h2,
-#biodata h2 {
+#biodata h2,
+#hasil h2 {
   color: #003366;
   border-bottom: 2px solid #003366;
   padding-bottom: 6px;
@@ -88,6 +91,7 @@ header li a:active {
 }
 
 #about p,
+#hasil p,
 #contact label,
 #biodata label {
   display: flex;
@@ -98,6 +102,7 @@ header li a:active {
   border-bottom: 1px solid #e6e6e6;
 }
 
+#about strong,
 #about strong,
 #contact label>span,
 #biodata label>span {
@@ -227,6 +232,7 @@ footer {
   }
 
   #about p,
+  #hasil p,
   #contact label,
   #biodata label {
     flex-direction: column;
@@ -234,6 +240,7 @@ footer {
   }
 
   #about strong,
+  #hasil strong,
   #contact label>span,
   #biodata label>span {
     text-align: left;

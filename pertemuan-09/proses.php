@@ -7,8 +7,8 @@ $arrKontak = [
     "sespesan" => $_POST["txtPesan"] ?? ""
 ];
 
-$_SESSION["Kontak"] = $arrKontak;
-header("location: index.php#contact");
+$_SESSION["Hasil"] = $arrHasil;
+header("location: index.php#ahsil");
 
 $_SESSION["sesnama"] = $sesnama;
 $_SESSION["sesemail"] = $sesemail;
