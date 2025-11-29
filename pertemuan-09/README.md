@@ -15,4 +15,5 @@
   <li>menghapus dan menambah $session ["Biodata"] = $arrBiodata yang lebih efisien</li>
   <li> mengubah session di index.php ke lebih sederhana</li>
   <li> menambahkan looping foreach dan mengahapus p section about</li>
+  <li> menambahkan file fungsi.php di petemuan-09 dan mengisi kode fungsi untuk form input</li>
 </ol>
