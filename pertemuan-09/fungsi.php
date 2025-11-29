@@ -1,5 +1,5 @@
 <?php
-function bersihkan ($str)
+function bersihkan($str)
 {
     return htmlspecialchars(trim($str));
 }
