@@ -11,4 +11,4 @@ belajar sebagai berikut :
 <li>menambahkan file read.php dan memasukan kode</li>
 <li> menduplikat file read_inc.php dan memodifikasi</li>
 <li>memodifkan kode di index.php di line 146</li>
-<li>
+<li> menghapus line 133 - 141 </li>
