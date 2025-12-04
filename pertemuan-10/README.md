@@ -7,4 +7,4 @@ NAMA : Redia Yuana Dinandika Tjandring<br>
 belajar sebagai berikut :
 <li> membuat file koneksi.php dan menambahkan kode</li>
 <li>mendownload phpmyadmin dan membuat database</li>
-<li>
+<li>mengcreate table tamu untuk menyimpan data dari form</li>
