@@ -85,25 +85,25 @@ require_once __DIR__ . '/fungsi.php';
         <button type="submit">Kirim</button>
         <button type="reset">Batal</button>
       </form>
-
     </section>
 
     <?php
-    $biodata = $_SESSION["Biodata"] ?? [];
+    $biodata = $_SESSION["biodata"] ?? [];
 
     $fieldConfig = [
       "nim" => ["label" => "NIM:", "suffix" => ""],
-      "nama" => ["label" => "Nama Lengkap:", "suffix" => "&#128526;"],
+      "nama" => ["label" => "Nama Lengkap:", "suffix" => " &#128526;"],
       "tempat" => ["label" => "Tempat Lahir:", "suffix" => ""],
       "tanggal" => ["label" => "Tanggal Lahir:", "suffix" => ""],
-      "hobi" => ["label" => "Hobi:", "suffix" => "&#127926;"],
-      "pasangan" => ["label" => "Pasangan:", "suffix" => "&hearts;"],
-      "pekerjaan" => ["label" => "Pekerjaan:", "suffix" => "&copy; 2025"],
+      "hobi" => ["label" => "Hobi:", "suffix" => " &#127926;"],
+      "pasangan" => ["label" => "Pasangan:", "suffix" => " &hearts;"],
+      "pekerjaan" => ["label" => "Pekerjaan:", "suffix" => " &copy; 2025"],
       "ortu" => ["label" => "Nama Orang Tua:", "suffix" => ""],
       "kakak" => ["label" => "Nama Kakak:", "suffix" => ""],
       "adik" => ["label" => "Nama Adik:", "suffix" => ""],
     ];
     ?>
+
     <section id="about">
       <h2>Tentang Saya</h2>
       <?= tampilkanBiodata($fieldConfig, $biodata) ?>
@@ -133,18 +133,17 @@ require_once __DIR__ . '/fungsi.php';
       <?php
       $contact = $_SESSION["contact"] ?? [];
 
-      $fieldkontak = [
-        "sesnama" => ["label" => "Nama:", "suffix" => ""],
-        "sesemail" => ["label" => "Email:", "suffix" => ""],
-        "sespesan" => ["label" => "Pesan Anda:", "suffix" => ""],
+      $fieldContact = [
+        "nama" => ["label" => "Nama:", "suffix" => ""],
+        "email" => ["label" => "Email:", "suffix" => ""],
+        "pesan" => ["label" => "Pesan Anda:", "suffix" => ""]
       ];
       ?>
 
       <br>
       <hr>
       <h2>Yang menghubungi kami</h2>
-      <?= tampilkanBiodata($fieldkontak, $contact) ?>
-
+      <?= tampilkanBiodata($fieldContact, $contact) ?>
     </section>
   </main>
 
