@@ -10,7 +10,7 @@ $fieldContact = [
 $sql = "SELECT * FROM tbl_tamu ORDER BY cid DESC";
 $q = mysqli_query($conn, $sql);
 if (!$q) {
-    echo "<p>Gagal membaca data tamu: " . htmlspecialchars(mysqli_connect_error($conn)) . "</p>";
+    echo "<p>Gagal membaca data tamu: " . htmlspecialchars(mysqli_error($conn)) . "</p>";
 } elseif (mysqli_num_rows($q) === 0) {
     echo "<p>Belum ada data tamu yang tersimpan. </p>";
 } else {
