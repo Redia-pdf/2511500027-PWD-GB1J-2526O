@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-$_SESSION["contact"] = $arrContact;
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
   $_SESSION['flash_error'] = 'Akses tidak Valid.';
   redirect_ke('index.php#contact');
@@ -30,6 +29,17 @@ if ($pesan === '') {
 /*
 kondisi dibawah ini hanya dikerjakan jika ada error, simpan nilai lama dan pesan error, lalu redirect (konsep PRG)
 */
+
+if (!empty($errors)) {
+  $_SESSION['old'] = [
+    'nama' => $nama,
+    'email' => $email,
+    'pesan' => $pesan,
+  ];
+
+  $_SESSION['flash_error'] = implode('<br>', $errors);
+  redirect_ke('index.php#contact');
+}
 
 #menyimpan query INSERT dengan prepared statement
 $sql = "INSERT INTO tbl_tamu (cnama, cemail, cpesan) VALUE (?, ?, ?)";
@@ -64,6 +74,7 @@ $arrContact = [
   "email" => $_POST["txtEmail"] ?? "",
   "pesan" => $_POST["txtPesan"] ?? ""
 ];
+$_SESSION["contact"] = $arrContact;
 
 $arrBiodata = [
   "nim" => $_POST["txtNim"] ?? "",
