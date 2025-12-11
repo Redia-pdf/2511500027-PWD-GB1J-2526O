@@ -1,12 +1,69 @@
 <?php
 session_start();
 
+$_SESSION["contact"] = $arrContact;
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+  $_SESSION['flash_error'] = 'Akses tidak Valid.';
+  redirect_ke('index.php#contact');
+}
+$nama  = bersihkan($_POST['txtNama']  ?? '');
+$email = bersihkan($_POST['txtEmail'] ?? '');
+$pesan = bersihkan($_POST['txtPesan'] ?? '');
+
+#validasi sederhana
+$errors = []; #ini array untuk menampung semua error yang ada
+
+if ($nama === '') {
+  $errors[] = 'Nama wajib diisi.';
+}
+
+if ($email === '') {
+  $errors[] = 'Email wajib diisi.';
+} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  $errors[] = 'Format e-mail tidak valid.';
+}
+
+if ($pesan === '') {
+  $errors[] = 'Pesan wajib diisi.';
+}
+
+/*
+kondisi dibawah ini hanya dikerjakan jika ada error, simpan nilai lama dan pesan error, lalu redirect (konsep PRG)
+*/
+
+#menyimpan query INSERT dengan prepared statement
+$sql = "INSERT INTO tbl_tamu (cnama, cemail, cpesan) VALUE (?, ?, ?)";
+$stmt = mysqli_prepare($conn, $sql);
+
+if (!$stmt) {
+  #jika gagal prepare, kirim pesan error ke peengguna (tanpa detail sensitif)
+  $_SESSION['flash_sukses'] = 'Terjadi kesalahan sistem (prepare gagal).';
+  redirect_ke('index.php#contact');
+}
+#bind parameter dan eksekusi (s = string)
+mysqli_stmt_bind_param($stmt, "sss", $nama, $email, $pesan);
+
+if (mysqli_stmt_execute($stmt)) { #jika berhasil, kosong old value, beri pesan sukses
+unset($_SESSION['old']);
+$_SESSION['falsh_sukses'] = 'Terima kasih, data Anda sudah tersimpan.';
+redirect_ke('index.php#contact'); #pola PRG: kembali ke form / halaman home
+} else { #jika gagal simpan kembali old value dan tampilkan error umum
+  $_SESSION['old'] = [
+    'nama' => $nama,
+    'email' => $email,
+    'pesan' => $pesan,
+  ];
+  $_SESSION['flash_error'] = 'Data gagal disimpan. silakan coba lagi.';
+  redirect_ke('index.php#contact');  
+}
+#tutup statement
+mysqli_stmt_close($stmt);
+
 $arrContact = [
   "nama" => $_POST["txtNama"] ?? "",
   "email" => $_POST["txtEmail"] ?? "",
   "pesan" => $_POST["txtPesan"] ?? ""
 ];
-$_SESSION["contact"] = $arrContact;
 
 $arrBiodata = [
   "nim" => $_POST["txtNim"] ?? "",
