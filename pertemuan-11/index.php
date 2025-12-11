@@ -142,7 +142,7 @@ require_once __DIR__ . '/fungsi.php';
         <label for="txtEmail"><span>Email:</span>
           <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" 
           required autocomplete="email"
-          value="<?= isset($old['email']) ? htmlspecialchars($old['email']) : '' ?>">>
+          value="<?= isset($old['email']) ? htmlspecialchars($old['email']) : '' ?>">
         </label>
 
         <label for="txtPesan"><span>Pesan Anda:</span>
