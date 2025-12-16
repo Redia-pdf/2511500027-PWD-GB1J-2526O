@@ -8,3 +8,5 @@ belajar sebagai berikut :
 <li> copy file dari pertemuan 10 ke 11 dan mengupdate fungsi.php- dengan function redirect</li>
 <li>Tampilkan nilai lama dari form untuk antisipasi jika error, pengguna cukup mengubah data yang sudah ada</li>
 <li>Rewrite proses.php:</li>
+<li>penambahan nomor di tabel</li>
+<li> update validasi untuk nama dan pesan</li>
