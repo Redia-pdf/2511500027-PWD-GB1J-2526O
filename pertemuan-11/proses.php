@@ -12,12 +12,17 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $nama  = bersihkan($_POST['txtNama']  ?? '');
 $email = bersihkan($_POST['txtEmail'] ?? '');
 $pesan = bersihkan($_POST['txtPesan'] ?? '');
+$captcha = bersihkan($_POST['captcha'] ?? '');
 
 #validasi sederhana
 $errors = []; #ini array untuk menampung semua error yang ada
 
+
+
 if ($nama === '') {
   $errors[] = 'Nama wajib diisi.';
+}elseif (strlen($nama) < 3) {
+  $errors[] = 'Nama minimal 3 karakter.';
 }
 
 if ($email === '') {
@@ -28,8 +33,19 @@ if ($email === '') {
 
 if ($pesan === '') {
   $errors[] = 'Pesan wajib diisi.';
+} elseif (strlen($pesan) < 10) {
+  $errors[] = 'Pesan minimal 10 karakter.';
 }
 
+if ((int)$captcha !== 5) {
+  $errors[] = 'Jawaban captcha salah.';
+}
+
+
+  if (!empty($errors)) {
+    $_SESSION['flash_error'] = implode('<br>', $errors);
+    redirect_ke('index.php#contact');
+}
 /*
 kondisi dibawah ini hanya dikerjakan jika ada error, simpan nilai lama dan pesan error, lalu redirect (konsep PRG)
 */
