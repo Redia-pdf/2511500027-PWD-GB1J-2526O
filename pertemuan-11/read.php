@@ -6,14 +6,17 @@ $q = mysqli_query($conn, $sql);
 ?>
 <table border="1" cellpadding="8" cellspacing="0">
     <tr>
+        <th>NO</th>
         <th>ID</th>
         <th>nama</th>
         <th>Email</th>
         <th>Pesan</th>
     </tr>
 
+       <?php $no = 1; ?>
     <?php while ($row = mysqli_fetch_assoc($q)): ?>
         <tr>
+            <td><?= $no++; ?></td>
             <td> <?= $row['cid']; ?></td>
             <td> <?= htmlspecialchars($row['cnama']); ?></td>
             <td> <?= htmlspecialchars($row['cemail']); ?></td>

@@ -21,4 +21,5 @@
   <li> menghapus kode htmlspesialchars di index.php dan di ganti dengan kode tampilkanBiodata dari fungsi.php</li>
   <li> menambahkan kode require_once di index.php</li>
   <li> menmodif post contact ke arrkontak</li>
+  <li> modif section contact</li>
 </ol>
