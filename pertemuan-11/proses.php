@@ -55,6 +55,7 @@ if (!empty($errors)) {
     'nama' => $nama,
     'email' => $email,
     'pesan' => $pesan,
+    'captcha' => $captcha,
   ];
 
   $_SESSION['flash_error'] = implode('<br>', $errors);

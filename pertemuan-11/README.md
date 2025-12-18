@@ -10,3 +10,5 @@ belajar sebagai berikut :
 <li>Rewrite proses.php:</li>
 <li>penambahan nomor di tabel</li>
 <li> update validasi untuk nama dan pesan</li>
+<li>Tambah input “captcha sederhana” (pertanyaan 2+3=?) untuk logika dasar</li>
+<li>Tambahkan kolom Created At setelah kolom Pesan untuk menampilkan tanggal dan waktu pesan dikirim</li>
