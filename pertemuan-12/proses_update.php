@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once __DIR__ . './koneksi.php';
+require __DIR__ . './koneksi.php';
 require_once __DIR__ . '/fungsi.php';
 
 #cek method form, hanya izinkan POST
@@ -20,7 +20,7 @@ if ($cid) {
 }
 
 #ambil dan bersihkan (sanitasi) nilai dari form
-$nama    = bersihkan($_POST['txtNamaEd'] ?? '');
+$nama    = bersihkan($_POST['txtNamaEd']  ?? '');
 $email   = bersihkan($_POST['txtEmailEd'] ?? '');
 $pesan   = bersihkan($_POST['txtPesanEd'] ?? '');
 $captcha = bersihkan($_POST['txtCaptcha'] ?? '');
@@ -79,8 +79,8 @@ menyiapkan query UPDATE dengan prepared statement
 */
 
 $stmt = mysqli_prepare($conn, "UPDATE tbl_tamu
-SET cnama = ?, cemail = ?, cpesan = ?
-WHERE cid = ?");
+                                SET cnama = ?, cemail = ?, cpesan = ?
+                                WHERE cid = ?");
 if (!$stmt) {
     #jika gagal prepare, kirim pesan error (tanpa detail sensitif)
     $_SESSION['flash_error'] = 'Terjadi kesalahan sistem (prepare gagal).';
@@ -103,7 +103,7 @@ if (mysqli_stmt_execute($stmt)) { #jika berhasil, kosongkan old value
         'email' => $email,
         'pesan' => $pesan,
     ];
-    $_SESSION['flash_'] = 'Data gagal diperbaharui. Silakan coba lagi.';
+    $_SESSION['flash_error'] = 'Data gagal diperbaharui. Silakan coba lagi.';
     redirect_ke('edit.php?cid='. (int)$cid);
 }
 #tutup statement

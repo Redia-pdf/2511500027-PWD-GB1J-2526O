@@ -38,12 +38,13 @@ if (!$cid) {
     jika ada kesalahan, tampilkan penanda error.
 */
 $stmt = mysqli_prepare($conn, "SELECT cid, cnama, cemail, cpesan
-FROM tbl_tamu WHERE cid = ? LIMIT 1");
+                                    FROM tbl_tamu WHERE cid = ? LIMIT 1");
 if (!$stmt) {
     $_SESSION['flash_error'] = 'Query tidak benar.';
     redirect_ke('read.php');
 }
-mysqli_stmt_bind_param($stmt, "i", $cid);
+
+mysqli_stmt_bind_param($stmt, "no", $cid);
 mysqli_stmt_execute($stmt);
 $res = mysqli_stmt_get_result($stmt);
 $row = mysqli_fetch_assoc($res);
@@ -81,7 +82,8 @@ if (!empty($old)) {
 <body>
     <header>
     <h1>Ini Header</h1>
-    <button clas  ="menu-toggle" id="menuToggle" aria-label="Toggle Navigation"> &#9776;
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+        &#9776;
     </button>
     <nav>
         <ul>
@@ -107,18 +109,19 @@ if (!empty($old)) {
         <label for="txtNama"><span>Nama:</span>
             <input type="text" id="txtNama" name="txtNamaEd"
                    placeholder="Masukkan nama" required autocomplete="name"
-                   value="<?= !empty($nama) ? $nama : ''; ?>">
+                   value="<?= !empty($nama) ? $nama : '' ?>">
         </label>
 
         <label for="txtEmail"><span>Email:</span>
             <input type="email" id="txtEmail" name="txtEmailEd"
                    placeholder="Masukkan email" required autocomplete="email"
-                   value="<?= !empty($email) ? $email : ''; ?>">
+                   value="<?= !empty($email) ? $email : '' ?>">
         </label>
 
         <label for="txtPesan"><span>Pesan Anda:</span>
             <textarea id="txtPesan" name="txtPesanEd" rows="4"
-                      placeholder="Tulis pesan anda..." required><?= !empty($pesan) ? $pesan : ''; ?></textarea>
+                      placeholder="Tulis pesan anda..." 
+                      required><?= !empty($pesan) ? $pesan : '' ?></textarea>
         </label>
 
         <label for="txtCaptcha"><span>Captcha 2 x 3 = ?</span>
@@ -131,8 +134,8 @@ if (!empty($old)) {
         <a href="read.php" class="reset">Kembali</a>
     </form>
 </section>
-<script src="script.js"></script>
 </main>
 
+<script src="script.js"></script>
 </body>
 </html>
