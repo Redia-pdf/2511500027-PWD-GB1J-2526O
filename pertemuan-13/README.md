@@ -8,10 +8,10 @@ belajar sebagai berikut :
 <li> import sql bahan pratikum pertemuan-13</li>
 <li> `menambah link delete untuk ke file proses_delete.php  di file read.php`</li>
 <li>mengcopy isi code file proses_update.php ke dalam file proses_delete.php</li>
+<li>menyesuaikan kode di proses_delete.php untuk proses hapus</li>
+<li>menambahkan parameter ke cid untuk link delete di read.php</li>
 <li> </li>
 <li> </li>
 <li> </li>
 <li> </li>
-<li> </li>
-<li> </li>
-<li> </li>
+</ol>
