@@ -108,9 +108,10 @@ require_once __DIR__ . '/fungsi.php';
       <h2>Tentang Saya</h2>
       <?= tampilkanBiodata($fieldConfig, $biodata) ?>
     </section>
+
     <?php
     $flash_sukses = $_SESSION['flash_sukses'] ?? ''; #jika query sukses
-    $flash_error  = $_SESSION['flash_error'] ??  ''; #jika ada error
+    $flash_error  = $_SESSION['flash_error'] ?? ''; #jika ada error
     $old          = $_SESSION['old'] ?? []; #untuk nilai lama form
 
     unset($_SESSION['flash_sukses'], $_SESSION['flash_error'], $_SESSION['old']); #bersihkan 3 session ini
@@ -151,17 +152,19 @@ require_once __DIR__ . '/fungsi.php';
           <small id="charCount">0/200 karakter</small>
         </label>
 
-        <label for="captcha"><span>2 + 3 = </span>
-          <input type="number" name="captcha" placeholder="Masukkan jawaban anda" required>
+        <label for="txtCaptcha"><span>Captcha 2 + 3 = ?</span>
+          <input type="number" id="txtCaptcha" name="txtCaptcha" placeholder="Jawab Pertanyaan..."
+            required
+            value="<?= isset($old['captcha']) ? htmlspecialchars($old['captcha']) : '' ?>">
         </label>
 
-        <button type="submit">Kirim</button>
-        <button type="reset">Batal</button>
+        <button type=" submit">Kirim</button>
+          <button type="reset">Batal</button>
       </form>
 
       <br>
       <hr>
-      <h2>Yang menghubungi kamikkk</h2>
+      <h2>Yang menghubungi kami</h2>
       <?php include 'read_inc.php'; ?>
     </section>
   </main>

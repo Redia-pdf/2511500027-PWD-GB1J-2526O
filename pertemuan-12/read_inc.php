@@ -23,4 +23,3 @@ if (!$q) {
         echo tampilkanBiodata($fieldContact, $arrContact);
     }
 }
-?>
