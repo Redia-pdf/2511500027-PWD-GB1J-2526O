@@ -18,6 +18,51 @@ $captcha = bersihkan($_POST['txtCaptcha'] ?? '');
 #Validasi sederhana
 $errors = []; #ini array untuk menampung semua error yang ada
 
+if ($nim === '') {
+  $errors[] = 'NIM wajib diisi.';
+} elseif (!ctype_digit($nim)) {
+  $errors[] = 'NIM harus berupa angka.';
+}
+ if ($namaB === '') {
+  $errors[] = 'Nama lengkap wajib diisi.';
+} elseif (mb_strlen($namaB) < 3) {
+  $errors[] = 'Nama lengkap minimal 3 karakter.';
+}
+
+if ($tempat === '') {
+  $errors[] = 'Tempat lahir wajib diisi.';
+}
+
+if ($tanggal === '') {
+  $errors[] = 'Tanggal lahir wajib diisi.';
+} elseif (mb_strlen($tanggal) < 6) {
+  $errors[] = 'Format tanggal lahir tidak valid.';
+}
+
+if ($hobi === '') {
+  $errors[] = 'Hobi wajib diisi.';
+}
+
+if ($pasangan === '') {
+  $errors[] = 'Nama pasangan wajib diisi.';
+}
+
+if ($pekerjaan === '') {
+  $errors[] = 'Pekerjaan wajib diisi.';
+}
+
+if ($ortu === '') {
+  $errors[] = 'Nama orang tua wajib diisi.';
+}
+
+if ($kakak === '') {
+  $errors[] = 'Nama kakak wajib diisi.';
+}
+
+if ($adik === '') {
+  $errors[] = 'Nama adik wajib diisi.';
+}
+
 if ($nama === '') {
   $errors[] = 'Nama wajib diisi.';
 }
@@ -48,6 +93,21 @@ if ($captcha!=="5") {
   $errors[] = 'Jawaban '. $captcha.' captcha salah.';
 }
 
+if (!empty($errors)) {
+
+  $_SESSION['old_biodata'] = [
+    'nim'       => $nim,
+    'nama'      => $namaB,
+    'tempat'    => $tempat,
+    'tanggal'   => $tanggal,
+    'hobi'      => $hobi,
+    'pasangan'  => $pasangan,
+    'pekerjaan' => $pekerjaan,
+    'ortu'      => $ortu,
+    'kakak'     => $kakak,
+    'adik'      => $adik,
+  ];
+}
 /*
 kondisi di bawah ini hanya dikerjakan jika ada error, 
 simpan nilai lama dan pesan error, lalu redirect (konsep PRG)
@@ -93,18 +153,20 @@ if (mysqli_stmt_execute($stmt)) { #jika berhasil, kosongkan old value, beri pesa
 #tutup statement
 mysqli_stmt_close($stmt);
 
-$arrBiodata = [
-  "nim" => $_POST["txtNim"] ?? "",
-  "nama" => $_POST["txtNmLengkap"] ?? "",
-  "tempat" => $_POST["txtT4Lhr"] ?? "",
-  "tanggal" => $_POST["txtTglLhr"] ?? "",
-  "hobi" => $_POST["txtHobi"] ?? "",
-  "pasangan" => $_POST["txtPasangan"] ?? "",
-  "pekerjaan" => $_POST["txtKerja"] ?? "",
-  "ortu" => $_POST["txtNmOrtu"] ?? "",
-  "kakak" => $_POST["txtNmKakak"] ?? "",
-  "adik" => $_POST["txtNmAdik"] ?? ""
-];
-$_SESSION["biodata"] = $arrBiodata;
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+  $_SESSION['flash_error'] = 'Akses tidak valid.';
+  redirect_ke('index.php#about');
+}
+
+$nim       = bersihkan($_POST['txtNim'] ?? '');
+$namaB     = bersihkan($_POST['txtNmLengkap'] ?? '');
+$tempat    = bersihkan($_POST['txtT4Lhr'] ?? '');
+$tanggal   = bersihkan($_POST['txtTglLhr'] ?? '');
+$hobi      = bersihkan($_POST['txtHobi'] ?? '');
+$pasangan  = bersihkan($_POST['txtPasangan'] ?? '');
+$pekerjaan = bersihkan($_POST['txtKerja'] ?? '');
+$ortu      = bersihkan($_POST['txtNmOrtu'] ?? '');
+$kakak     = bersihkan($_POST['txtNmKakak'] ?? '');
+$adik      = bersihkan($_POST['txtNmAdik'] ?? '');
 
 header("location: index.php#about");

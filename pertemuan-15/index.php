@@ -55,7 +55,7 @@ require_once __DIR__ . '/fungsi.php';
         </label>
 
         <label for="txtTglLhr"><span>Tanggal Lahir:</span>
-          <input type="text" id="txtTglLhr" name="txtTglLhr" placeholder="Masukkan Tanggal Lahir" required>
+          <input type="text" id="txtTglLhr" name="txtTglLhr" placeholder="Masukkan Tanggal Lahir. contoh: 12-01-2004" required>
         </label>
 
         <label for="txtHobi"><span>Hobi:</span>
