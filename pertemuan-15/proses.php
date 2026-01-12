@@ -25,8 +25,8 @@ if ($nim === '') {
 }
  if ($namaB === '') {
   $errors[] = 'Nama lengkap wajib diisi.';
-} elseif (mb_strlen($namaB) < 3) {
-  $errors[] = 'Nama lengkap minimal 3 karakter.';
+} elseif (mb_strlen($namaB) < 4) {
+  $errors[] = 'Nama lengkap minimal 4 karakter.';
 }
 
 if ($tempat === '') {
@@ -107,6 +107,8 @@ if (!empty($errors)) {
     'kakak'     => $kakak,
     'adik'      => $adik,
   ];
+    $_SESSION['flash_error'] = implode('<br>', $errors);
+  redirect_ke('index.php#about');
 }
 /*
 kondisi di bawah ini hanya dikerjakan jika ada error, 
