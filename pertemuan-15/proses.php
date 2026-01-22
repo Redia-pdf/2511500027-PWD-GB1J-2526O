@@ -6,14 +6,23 @@ require_once __DIR__ . '/fungsi.php';
 #cek method form, hanya izinkan POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
   $_SESSION['flash_error'] = 'Akses tidak valid.';
-  redirect_ke('index.php#contact');
+  redirect_ke('index.php');
 }
 
-#ambil dan bersihkan nilai dari form
-$nama  = bersihkan($_POST['txtNama']  ?? '');
-$email = bersihkan($_POST['txtEmail'] ?? '');
-$pesan = bersihkan($_POST['txtPesan'] ?? '');
-$captcha = bersihkan($_POST['txtCaptcha'] ?? '');
+$formType = $_POST['form_type'] ?? '';
+
+if ($formType === 'biodata') {
+$nim       = bersihkan($_POST['txtNim'] ?? '');
+$namaB     = bersihkan($_POST['txtNmLengkap'] ?? '');
+$tempat    = bersihkan($_POST['txtT4Lhr'] ?? '');
+$tanggal   = bersihkan($_POST['txtTglLhr'] ?? '');
+$hobi      = bersihkan($_POST['txtHobi'] ?? '');
+$pasangan  = bersihkan($_POST['txtPasangan'] ?? '');
+$pekerjaan = bersihkan($_POST['txtKerja'] ?? '');
+$ortu      = bersihkan($_POST['txtNmOrtu'] ?? '');
+$kakak     = bersihkan($_POST['txtNmKakak'] ?? '');
+$adik      = bersihkan($_POST['txtNmAdik'] ?? '');
+
 
 #Validasi sederhana
 $errors = []; #ini array untuk menampung semua error yang ada
@@ -22,7 +31,10 @@ if ($nim === '') {
   $errors[] = 'NIM wajib diisi.';
 } elseif (!ctype_digit($nim)) {
   $errors[] = 'NIM harus berupa angka.';
+}elseif (strlen($nim) < 10) {
+  $errors[] = 'NIM minimal 10 digit.';
 }
+
  if ($namaB === '') {
   $errors[] = 'Nama lengkap wajib diisi.';
 } elseif (mb_strlen($namaB) < 4) {
@@ -63,6 +75,57 @@ if ($adik === '') {
   $errors[] = 'Nama adik wajib diisi.';
 }
 
+if (!empty($errors)) {
+
+  $_SESSION['old_biodata'] = [
+    'nim'       => $nim,
+    'nama'      => $namaB,
+    'tempat'    => $tempat,
+    'tanggal'   => $tanggal,
+    'hobi'      => $hobi,
+    'pasangan'  => $pasangan,
+    'pekerjaan' => $pekerjaan,
+    'ortu'      => $ortu,
+    'kakak'     => $kakak,
+    'adik'      => $adik,
+  ];
+    $_SESSION['flash_error'] = implode('<br>', $errors);
+  redirect_ke('index.php#about');
+}
+
+$sql = "INSERT INTO tbl_biodata
+        (nim, nama_lengkap, tempat_lahir, tanggal_lahir,
+         hobi, pasangan, pekerjaan, nama_ortu, nama_kakak, nama_adik)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+$stmt = mysqli_prepare($conn, $sql);
+
+if (!$stmt) {
+  $_SESSION['flash_error'] = 'Terjadi kesalahan sistem (prepare gagal).';
+  redirect_ke('index.php#about');
+}
+
+mysqli_stmt_bind_param(
+  $stmt, "isssssssss", $nim, $namaB, $tempat, $tanggal, $hobi, $pasangan, $pekerjaan, $ortu, $kakak, $adik);
+
+if (mysqli_stmt_execute($stmt)) {
+  $_SESSION['flash_sukses'] = 'Biodata berhasil disimpan.';
+  redirect_ke('index.php#about');
+} else {
+  $_SESSION['flash_error'] = 'NIM sudah terdaftar.';
+  redirect_ke('index.php#about');
+}
+mysqli_stmt_close($stmt);
+}
+
+if ($formType === 'contact') {
+#ambil dan bersihkan nilai dari form
+$nama  = bersihkan($_POST['txtNama']  ?? '');
+$email = bersihkan($_POST['txtEmail'] ?? '');
+$pesan = bersihkan($_POST['txtPesan'] ?? '');
+$captcha = bersihkan($_POST['txtCaptcha'] ?? '');
+
+$errors = [];
 if ($nama === '') {
   $errors[] = 'Nama wajib diisi.';
 }
@@ -91,24 +154,6 @@ if (mb_strlen($pesan) < 10) {
 
 if ($captcha!=="5") {
   $errors[] = 'Jawaban '. $captcha.' captcha salah.';
-}
-
-if (!empty($errors)) {
-
-  $_SESSION['old_biodata'] = [
-    'nim'       => $nim,
-    'nama'      => $namaB,
-    'tempat'    => $tempat,
-    'tanggal'   => $tanggal,
-    'hobi'      => $hobi,
-    'pasangan'  => $pasangan,
-    'pekerjaan' => $pekerjaan,
-    'ortu'      => $ortu,
-    'kakak'     => $kakak,
-    'adik'      => $adik,
-  ];
-    $_SESSION['flash_error'] = implode('<br>', $errors);
-  redirect_ke('index.php#about');
 }
 /*
 kondisi di bawah ini hanya dikerjakan jika ada error, 
@@ -152,23 +197,11 @@ if (mysqli_stmt_execute($stmt)) { #jika berhasil, kosongkan old value, beri pesa
   $_SESSION['flash_error'] = 'Data gagal disimpan. Silakan coba lagi.';
   redirect_ke('index.php#contact');
 }
+
 #tutup statement
 mysqli_stmt_close($stmt);
-
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-  $_SESSION['flash_error'] = 'Akses tidak valid.';
-  redirect_ke('index.php#about');
 }
-
-$nim       = bersihkan($_POST['txtNim'] ?? '');
-$namaB     = bersihkan($_POST['txtNmLengkap'] ?? '');
-$tempat    = bersihkan($_POST['txtT4Lhr'] ?? '');
-$tanggal   = bersihkan($_POST['txtTglLhr'] ?? '');
-$hobi      = bersihkan($_POST['txtHobi'] ?? '');
-$pasangan  = bersihkan($_POST['txtPasangan'] ?? '');
-$pekerjaan = bersihkan($_POST['txtKerja'] ?? '');
-$ortu      = bersihkan($_POST['txtNmOrtu'] ?? '');
-$kakak     = bersihkan($_POST['txtNmKakak'] ?? '');
-$adik      = bersihkan($_POST['txtNmAdik'] ?? '');
-
-header("location: index.php#about");
+else {
+  $_SESSION['flash_error'] = 'Form tidak dikenali.';
+  redirect_ke('index.php');
+}
