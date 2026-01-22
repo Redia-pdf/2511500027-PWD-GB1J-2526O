@@ -47,7 +47,7 @@ if ($tempat === '') {
 
 if ($tanggal === '') {
   $errors[] = 'Tanggal lahir wajib diisi.';
-} elseif (mb_strlen($tanggal) < 6) {
+} elseif (mb_strlen($tanggal) < 10) {
   $errors[] = 'Format tanggal lahir tidak valid.';
 }
 
@@ -77,9 +77,9 @@ if ($adik === '') {
 
 if (!empty($errors)) {
 
-  $_SESSION['old_biodata'] = [
+  $_SESSION['old'] = [
     'nim'       => $nim,
-    'nama'      => $namaB,
+    'namaB'      => $namaB,
     'tempat'    => $tempat,
     'tanggal'   => $tanggal,
     'hobi'      => $hobi,
@@ -89,8 +89,9 @@ if (!empty($errors)) {
     'kakak'     => $kakak,
     'adik'      => $adik,
   ];
+  $_SESSION['form_type'] = 'biodata'; 
     $_SESSION['flash_error'] = implode('<br>', $errors);
-  redirect_ke('index.php#about');
+  redirect_ke('index.php#biodata');
 }
 
 $sql = "INSERT INTO tbl_biodata
@@ -112,18 +113,21 @@ $stmt = mysqli_prepare($conn, $sql);
 
 if (!$stmt) {
   $_SESSION['flash_error'] = 'Terjadi kesalahan sistem (prepare gagal).';
-  redirect_ke('index.php#about');
+  redirect_ke('index.php#biodata');
 }
 
+$nim_int = (int) $nim;
 mysqli_stmt_bind_param(
   $stmt, "isssssssss", $nim, $namaB, $tempat, $tanggal, $hobi, $pasangan, $pekerjaan, $ortu, $kakak, $adik);
 
 if (mysqli_stmt_execute($stmt)) {
+  $_SESSION['form_type'] = 'biodata';
   $_SESSION['flash_sukses'] = 'Biodata berhasil disimpan.';
-  redirect_ke('index.php#about');
+  redirect_ke('index.php#biodata');
 } else {
+  $_SESSION['form_type'] = 'biodata';
   $_SESSION['flash_error'] = 'NIM sudah terdaftar.';
-  redirect_ke('index.php#about');
+  redirect_ke('index.php#biodata');
 }
 mysqli_stmt_close($stmt);
 }
@@ -195,9 +199,11 @@ mysqli_stmt_bind_param($stmt, "sss", $nama, $email, $pesan);
 
 if (mysqli_stmt_execute($stmt)) { #jika berhasil, kosongkan old value, beri pesan sukses
   unset($_SESSION['old']);
+  $_SESSION['form_type'] = 'contact';
   $_SESSION['flash_sukses'] = 'Terima kasih, data Anda sudah tersimpan.';
   redirect_ke('index.php#contact'); #pola PRG: kembali ke form / halaman home
 } else { #jika gagal, simpan kembali old value dan tampilkan error umum
+  $_SESSION['form_type'] = 'contact';
   $_SESSION['old'] = [
     'nama'  => $nama,
     'email' => $email,

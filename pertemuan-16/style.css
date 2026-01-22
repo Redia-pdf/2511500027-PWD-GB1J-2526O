@@ -180,103 +180,6 @@ footer {
   cursor: pointer;
 }
 
-/* ===== BODY ===== */
-body {
-  background: #f4ede2; /* krem */
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-/* ===== CONTAINER ===== */
-.container {
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 10px;
-}
-
-/* ===== KOTAK FORM ===== */
-.card {
-  background: #fff1e6; /* krem muda */
-  border: 2px solid #7a1f1f; /* merah maron */
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  padding: 25px;
-}
-
-/* ===== JUDUL ===== */
-.card h2 {
-  margin-top: 0;
-  color: #7a1f1f;
-  text-align: center;
-}
-
-/* ===== LABEL & INPUT ===== */
-.card label {
-  display: block;
-  margin-bottom: 12px;
-  color: #5a2a2a;
-}
-
-.card input,
-.card textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #d7c0b4;
-  border-radius: 8px;
-  margin-top: 6px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-
-/* ===== BUTTON ===== */
-.card button {
-  background: #7a1f1f;
-  color: #fff;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.card a {
-  display: inline-block;
-  margin-left: 10px;
-  text-decoration: none;
-  color: #7a1f1f;
-  font-weight: bold;
-}
-
-/* ===== GROUP BUTTON ===== */
-.btn-group {
-  margin-top: 15px;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 600px) {
-  .container {
-    padding: 10px;
-  }
-
-  .card {
-    padding: 20px;
-  }
-
-  .card button {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .card .btn-link {
-    display: block;
-    margin: 10px auto 0;
-    width: 100%;
-    text-align: center;
-  }
-}
-
-
 @media (max-width: 600px) {
   .menu-toggle {
     display: block;
@@ -349,5 +252,4 @@ body {
   #biodata button {
     width: 100%;
   }
-  
 }

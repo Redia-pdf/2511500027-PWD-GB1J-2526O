@@ -3,9 +3,15 @@
   require 'koneksi.php';
   require 'fungsi.php';
 
-  $sql = "SELECT * FROM tbl_tamu ORDER BY cid DESC";
-  $q = mysqli_query($conn, $sql);
-  if (!$q) {
+   $sql_bio = "SELECT * FROM tbl_biodata ORDER BY nim DESC";
+  $q_bio   = mysqli_query($conn, $sql_bio);
+
+  $sql_tamu = "SELECT * FROM tbl_tamu ORDER BY cid DESC";
+  $q_tamu   = mysqli_query($conn, $sql_tamu);
+  if (!$q_bio || !$q_bio) {
+    die("Query error: " . mysqli_error($conn));
+  }
+   if (!$q_tamu || !$q_tamu) {
     die("Query error: " . mysqli_error($conn));
   }
 ?>
@@ -31,6 +37,45 @@
         </div>
 <?php endif; ?>
 
+<h2>Data Tamu Biodata</h2>
+<table border="1" cellpadding="8" cellspacing="0">
+  <tr>
+    <th>No</th>
+    <th>Aksi</th>
+    <th>NIM</th>
+    <th>NAMA LENGKAP</th>
+    <th>TEMPAT LAHIR</th>
+    <th>TANGGAL LAHIR</th>
+    <th>HOBI</th>
+    <th>PASANGAN</th>
+    <th>PEKERJAAN</th>
+    <th>NAMA ORTU</th>
+    <th>NAMA KAKAK</th>
+    <th>NAMA ADIK</th>
+  </tr>
+  <?php $i = 1; ?>
+  <?php while ($row = mysqli_fetch_assoc($q_bio)): ?>
+    <tr>
+      <td><?= $i++ ?></td>
+      <td>
+        <a href="edit_b.php?nim=<?= (int)$row['nim']; ?>">Edit</a>
+        <a onclick="return confirm('Hapus <?= htmlspecialchars($row['nama_lengkap']); ?>?')" href="proses_delete_b.php?nim=<?= (int)$row['nim']; ?>">Delete</a>
+      </td>
+      <td><?= htmlspecialchars($row['nim']); ?></td>
+      <td><?= htmlspecialchars($row['nama_lengkap']); ?></td>
+      <td><?= htmlspecialchars($row['tempat_lahir']); ?></td>
+      <td><?= htmlspecialchars($row['tanggal_lahir']); ?></td>
+      <td><?= htmlspecialchars($row['hobi']); ?></td>
+      <td><?= htmlspecialchars($row['pasangan']); ?></td>
+      <td><?= htmlspecialchars($row['pekerjaan']); ?></td>
+      <td><?= htmlspecialchars($row['nama_ortu']); ?></td>
+      <td><?= htmlspecialchars($row['nama_kakak']); ?></td>
+      <td><?= htmlspecialchars($row['nama_adik']); ?></td>
+    </tr>
+  <?php endwhile; ?>
+</table>
+
+<h2>Data Tamu contact</h2>
 <table border="1" cellpadding="8" cellspacing="0">
   <tr>
     <th>No</th>
@@ -42,7 +87,7 @@
     <th>Created At</th>
   </tr>
   <?php $i = 1; ?>
-  <?php while ($row = mysqli_fetch_assoc($q)): ?>
+  <?php while ($row = mysqli_fetch_assoc($q_tamu)): ?>
     <tr>
       <td><?= $i++ ?></td>
       <td>

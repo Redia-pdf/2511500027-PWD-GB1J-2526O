@@ -4,7 +4,7 @@
   require 'fungsi.php';
 
   /*
-    Ambil nilai nim dari GET dan lakukan validasi untuk 
+    Ambil nilai cid dari GET dan lakukan validasi untuk 
     mengecek cid harus angka dan lebih besar dari 0 (> 0).
     'options' => ['min_range' => 1] artinya cid harus ≥ 1 
     (bukan 0, bahkan bukan negatif, bukan huruf, bukan HTML).
@@ -14,7 +14,7 @@
   ]);
   /*
     Skrip di atas cara penulisan lamanya adalah:
-    $nim = $_GET['cid'] ?? '';
+    $cid = $_GET['cid'] ?? '';
     $cid = (int)$cid;
 
     Cara lama seperti di atas akan mengambil data mentah 
