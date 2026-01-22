@@ -38,9 +38,17 @@ require_once __DIR__ . '/fungsi.php';
       <p>Ini contoh paragraf HTML.</p>
     </section>
 
+     <?php
+    $flash_sukses = $_SESSION['flash_sukses'] ?? ''; #jika query sukses
+    $flash_error  = $_SESSION['flash_error'] ?? ''; #jika ada error
+    $old          = $_SESSION['old'] ?? []; #untuk nilai lama form
+
+    unset($_SESSION['flash_sukses'], $_SESSION['flash_error'], $_SESSION['old']); #bersihkan 3 session ini
+    ?>
     <section id="biodata">
       <h2>Biodata Sederhana Mahasiswa</h2>
       <form action="proses.php" method="POST">
+      <input type="hidden" name="form_type" value="biodata">
 
         <label for="txtNim"><span>NIM:</span>
           <input type="text" id="txtNim" name="txtNim" placeholder="Masukkan NIM" required>
@@ -55,7 +63,7 @@ require_once __DIR__ . '/fungsi.php';
         </label>
 
         <label for="txtTglLhr"><span>Tanggal Lahir:</span>
-          <input type="text" id="txtTglLhr" name="txtTglLhr" placeholder="Masukkan Tanggal Lahir. contoh: 12-01-2004" required>
+          <input type="text" id="txtTglLhr" name="txtTglLhr" placeholder="Masukkan Tanggal Lahir" required>
         </label>
 
         <label for="txtHobi"><span>Hobi:</span>
@@ -87,26 +95,9 @@ require_once __DIR__ . '/fungsi.php';
       </form>
     </section>
 
-    <?php
-    $biodata = $_SESSION["biodata"] ?? [];
-
-    $fieldConfig = [
-      "nim" => ["label" => "NIM:", "suffix" => ""],
-      "nama" => ["label" => "Nama Lengkap:", "suffix" => " &#128526;"],
-      "tempat" => ["label" => "Tempat Lahir:", "suffix" => ""],
-      "tanggal" => ["label" => "Tanggal Lahir:", "suffix" => ""],
-      "hobi" => ["label" => "Hobi:", "suffix" => " &#127926;"],
-      "pasangan" => ["label" => "Pasangan:", "suffix" => " &hearts;"],
-      "pekerjaan" => ["label" => "Pekerjaan:", "suffix" => " &copy; 2025"],
-      "ortu" => ["label" => "Nama Orang Tua:", "suffix" => ""],
-      "kakak" => ["label" => "Nama Kakak:", "suffix" => ""],
-      "adik" => ["label" => "Nama Adik:", "suffix" => ""],
-    ];
-    ?>
-
     <section id="about">
       <h2>Tentang Saya</h2>
-      <?= tampilkanBiodata($fieldConfig, $biodata) ?>
+    <?php include 'read_inc_bio.php'; ?>
     </section>
 
     <?php
@@ -133,6 +124,7 @@ require_once __DIR__ . '/fungsi.php';
       <?php endif; ?>
 
       <form action="proses.php" method="POST">
+      <input type="hidden" name="form_type" value="contact">
 
         <label for="txtNama"><span>Nama:</span>
           <input type="text" id="txtNama" name="txtNama" placeholder="Masukkan nama"
