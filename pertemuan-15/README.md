@@ -11,7 +11,7 @@ belajar sebagai berikut :
 <li>menambahkan stetment ke form bioadata</li>
 <li>merapikan struktur proses.php</li>
 <li>buat file read_inc_bio.php untuk form biodata</li>
-<li></li>
-<li></li>
+<li>menambahkan formtype di index.php agar data dari index.php bisa terkirim ke database</li>
+<li>menambahkan flash error dan sukses di section biodata</li>
 <li></li>
 </ol>

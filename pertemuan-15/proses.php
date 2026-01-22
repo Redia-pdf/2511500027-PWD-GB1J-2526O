@@ -1,6 +1,6 @@
 <?php
 session_start();
-require __DIR__ . './koneksi.php';
+require __DIR__ . '/koneksi.php';
 require_once __DIR__ . '/fungsi.php';
 
 #cek method form, hanya izinkan POST
@@ -96,7 +96,17 @@ if (!empty($errors)) {
 $sql = "INSERT INTO tbl_biodata
         (nim, nama_lengkap, tempat_lahir, tanggal_lahir,
          hobi, pasangan, pekerjaan, nama_ortu, nama_kakak, nama_adik)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ON DUPLICATE KEY UPDATE
+        nama_lengkap = VALUES(nama_lengkap),
+        tempat_lahir = VALUES(tempat_lahir),
+        tanggal_lahir = VALUES(tanggal_lahir),
+        hobi = VALUES(hobi),
+        pasangan = VALUES(pasangan),
+        pekerjaan = VALUES(pekerjaan),
+        nama_ortu = VALUES(nama_ortu),
+        nama_kakak = VALUES(nama_kakak),
+        nama_adik = VALUES(nama_adik)";
 
 $stmt = mysqli_prepare($conn, $sql);
 
